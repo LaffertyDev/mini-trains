@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cd4mrsx7a3ks5"]
+
+[ext_resource type="Texture2D" uid="uid://bbnw161838l4w" path="res://src/entities/gridtile/rail_junction.png" id="1_3r4h2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6toy"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0j74"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnp77"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tboi"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8fqa"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oihrq"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(80, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6toy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0j74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnp77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tboi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8fqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oihrq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
