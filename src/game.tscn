@@ -84,7 +84,10 @@ grid_type = 3
 junction_type = 3
 
 [node name="train" parent="rail_grid" instance=ExtResource("6_wqvko")]
-position = Vector2(-51, 0)
-metadata/_edit_lock_ = true
+position = Vector2(-48, 0)
+
+[node name="train2" parent="rail_grid" instance=ExtResource("6_wqvko")]
+position = Vector2(-64, 16)
+InitialDirection = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -11,11 +11,37 @@ var bottom: Area2D
 var top: Area2D
 var right: Area2D
 
+enum Direction {left, top, bottom, right}
+@export var InitialDirection: Direction = Direction.right
+
+func set_speed():
+	match InitialDirection:
+		"moving_left":
+			self.velocity = Vector2(-speed, 0)
+		"moving_right":
+			self.velocity = Vector2(speed, 0)
+		"moving_bottom":
+			self.velocity = Vector2(0, speed)
+		"moving_top":
+			self.velocity = Vector2(0, -speed)
+	set_anim_match_direction()
+
+func set_anim_match_direction():
+	if velocity.x < 0:
+		%animated_sprite.play("moving_left")
+	if velocity.x > 0:
+		%animated_sprite.play("moving_right")
+	if velocity.y < 0:
+		%animated_sprite.play("moving_top")
+	if velocity.y > 0:
+		%animated_sprite.play("moving_bottom")
+
 func _ready():
 	left = %left
 	bottom = %bottom
 	top = %top
 	right = %right
+	set_speed()
 
 func _physics_process(delta: float) -> void:
 	self.position += (velocity * delta)
@@ -68,7 +94,7 @@ func _on_center_area_entered(area: Area2D) -> void:
 					velocity = Vector2(speed, 0)
 			Constants.JunctionType.WEST_SOUTH:
 				if velocity.x != 0:
-					velocity = Vector2(0, -speed)
+					velocity = Vector2(0, speed)
 				else:
 					velocity = Vector2(-speed, 0)
 			Constants.JunctionType.WEST_NORTH:
@@ -76,15 +102,7 @@ func _on_center_area_entered(area: Area2D) -> void:
 					velocity = Vector2(0, -speed)
 				else:
 					velocity = Vector2(-speed, 0)
-					
-		if velocity.x < 0:
-			%animated_sprite.play("moving_left")
-		if velocity.x > 0:
-			%animated_sprite.play("moving_right")
-		if velocity.y < 0:
-			%animated_sprite.play("moving_top")
-		if velocity.y > 0:
-			%animated_sprite.play("moving_bottom")
+		set_anim_match_direction()
 
 
 func _on_center_area_exited(area: Area2D) -> void:
@@ -103,5 +121,4 @@ func _on_center_area_exited(area: Area2D) -> void:
 		
 	var next_grid_tile = grid.get_tile_at_pos(current_grid_position + direction)
 	if next_grid_tile == Constants.GridType.EMPTY:
-		print("NEXT TILE EMPTY")
 		handle_ded()
