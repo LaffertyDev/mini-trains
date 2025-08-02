@@ -12,14 +12,20 @@ var options_to_sprite = {
 
 signal option_was_built(option: Constants.BuildOptions)
 
-func setup_build_options() -> void:
-	var options = [
-		Constants.BuildOptions.TRAIN,
-		Constants.BuildOptions.RAIL_VERTICAL,
-		Constants.BuildOptions.RAIL_HORIZONTAL,
-		Constants.BuildOptions.RAIL_JUNCTION_X,
-		Constants.BuildOptions.RAIL_JUNCTION_90,
-	]
+func setup_build_options(for_tile_type: Constants.GridType) -> void:
+	var options
+	match for_tile_type:
+		Constants.GridType.EMPTY:
+			options = [
+				Constants.BuildOptions.RAIL_VERTICAL,
+				Constants.BuildOptions.RAIL_HORIZONTAL,
+				Constants.BuildOptions.RAIL_JUNCTION_X,
+				Constants.BuildOptions.RAIL_JUNCTION_90,
+			]
+		_:
+			options = [
+				Constants.BuildOptions.TRAIN,
+			]
 	
 	for c in get_children():
 		c.queue_free()

@@ -140,7 +140,6 @@ position = Vector2(64, 0)
 
 [node name="train" parent="." instance=ExtResource("6_wqvko")]
 position = Vector2(64, 32)
-initial_facing_direction = 3
 metadata/_edit_lock_ = true
 
 [node name="train2" parent="." instance=ExtResource("6_wqvko")]

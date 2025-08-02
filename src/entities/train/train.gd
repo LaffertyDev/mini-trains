@@ -7,20 +7,20 @@ var wagons_following = []
 
 var wagon_res = preload("res://src/entities/wagon/wagon.tscn")
 
-@export var initial_facing_direction: Constants.Direction = Constants.Direction.left:
-	set(new_direction):
-		var direction
-		match new_direction:
-			Constants.Direction.left:
-				direction = Vector2(-1, 0)
-			Constants.Direction.right:
-				direction = Vector2(1, 0)
-			Constants.Direction.bottom:
-				direction = Vector2(0, 1)
-			Constants.Direction.top:
-				direction = Vector2(0, -1)
-		initial_facing_direction = new_direction
-		%TrackEngine.set_direction(direction)
+func _ready():
+	var grid: GridController = get_tree().current_scene.get_grid()
+	var grid_position = grid.world_to_grid(self.global_position)
+	var grid_tile = grid.get_tile_at_pos(grid_position)
+	var starting_direction
+	match grid_tile:
+		Constants.GridType.RAIL_HORIZONTAL:
+			starting_direction = Vector2(-1, 0)
+		Constants.GridType.RAIL_VERTICAL:
+			starting_direction = Vector2(0, 1)
+		_:
+			print("ERROR ERROR ERROR ERROR")
+	self.position = grid.grid_to_world_top_left(grid_position)
+	%TrackEngine.set_direction(starting_direction)
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	print('ded')

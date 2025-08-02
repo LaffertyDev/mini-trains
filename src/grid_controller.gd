@@ -2,6 +2,7 @@ extends Node2D
 
 class_name GridController
 
+var train_scene = preload("res://src/entities/train/train.tscn")
 var rail_scene = preload("res://src/entities/gridtile/gridtile.tscn")
 var build_menu_scene = preload("res://src/ui/build_menu/build_menu.tscn")
 
@@ -15,7 +16,7 @@ func select_transition_state_to_selected() -> void:
 	cursor_current_state = CursorState.Selected
 	var build_menu = get_parent().get_node("BuildMenu")
 	build_menu.position = grid_to_world_top_left(selected_tile)
-	build_menu.setup_build_options()
+	build_menu.setup_build_options(get_tile_at_pos(selected_tile))
 	build_menu.show()
 	
 	
@@ -45,6 +46,12 @@ func _unhandled_input(event):
 						Constants.GridType.EMPTY:
 							select_transition_state_to_selected()
 							pass
+						Constants.GridType.RAIL_HORIZONTAL:
+							select_transition_state_to_selected()
+							pass
+						Constants.GridType.RAIL_VERTICAL:
+							select_transition_state_to_selected()
+							pass
 						Constants.GridType.BLOCKED_INVISIBLE:
 							# do nothing
 							pass
@@ -71,6 +78,10 @@ func _process(_delta: float) -> void:
 					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.BLOCKED_INVISIBLE:
 					select_transition_state_to_none()
+				Constants.GridType.RAIL_HORIZONTAL:
+					select_transition_state_to_hovering(tile_pos)
+				Constants.GridType.RAIL_VERTICAL:
+					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_X:
 					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_90:
@@ -82,6 +93,10 @@ func _process(_delta: float) -> void:
 				Constants.GridType.BLOCKED_INVISIBLE:
 					select_transition_state_to_none()
 					# do nothing
+				Constants.GridType.RAIL_HORIZONTAL:
+					select_transition_state_to_hovering(tile_pos)
+				Constants.GridType.RAIL_VERTICAL:
+					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_X:
 					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_90:
@@ -97,6 +112,11 @@ func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType, junction_
 	rail.grid_type = grid_type
 	rail.junction_type = junction_type
 	add_child(rail)
+	
+func spawn_train_at_position(grid_pos: Vector2) -> void:
+	var train = train_scene.instantiate()
+	train.position = grid_to_world_top_left(grid_pos)
+	get_parent().add_child(train)
 	
 func get_tile_at_pos(grid_pos: Vector2) -> Constants.GridType:
 	var gridtiles = get_tree().get_nodes_in_group("grid_tiles")
@@ -127,8 +147,7 @@ func grid_to_world_top_left(grid_pos: Vector2) -> Vector2:
 func _on_build_menu_option_was_built(option: Constants.BuildOptions) -> void:
 	match option:
 		Constants.BuildOptions.TRAIN:
-			print("TODO")
-			pass
+			spawn_train_at_position(selected_tile)
 		Constants.BuildOptions.RAIL_VERTICAL:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_VERTICAL, Constants.JunctionType.EAST_SOUTH)
 		Constants.BuildOptions.RAIL_HORIZONTAL:

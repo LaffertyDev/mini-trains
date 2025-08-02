@@ -61,7 +61,7 @@ UI
 		* [x] Add sound for clicking on a tile [5 minutes]
 	* Add system for keeping track of current tiles [10 minutes]
 	* Build menu loads tiles you can place [30 minutes]
-	* Clicking on tile places at pre-clicked coordinates [5 minutes]
+	* [x] Clicking on tile places at pre-clicked coordinates [5 minutes]
 		* Add sound for building a track [5 minutes]
 * Add tile improvement selector [3 hours]
 	* Every 60 seconds
