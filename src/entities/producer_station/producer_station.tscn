@@ -47,5 +47,21 @@ offset_bottom = 23.0
 position = Vector2(9.5, 8)
 shape = SubResource("RectangleShape2D_uuqnp")
 
+[node name="gridtyle3" parent="." instance=ExtResource("3_uuqnp")]
+position = Vector2(0, -16)
+grid_type = 5
+
+[node name="gridtyle6" parent="." instance=ExtResource("3_uuqnp")]
+position = Vector2(0, -32)
+grid_type = 5
+
+[node name="gridtyle4" parent="." instance=ExtResource("3_uuqnp")]
+position = Vector2(16, -16)
+grid_type = 5
+
+[node name="gridtyle5" parent="." instance=ExtResource("3_uuqnp")]
+position = Vector2(16, -32)
+grid_type = 5
+
 [connection signal="timeout" from="resource_production_timer" to="." method="_on_resource_production_timer_timeout"]
 [connection signal="timeout" from="decay_death_timer" to="." method="_on_decay_death_timer_timeout"]

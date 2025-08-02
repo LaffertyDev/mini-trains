@@ -46,6 +46,12 @@ func set_image():
 	%junction_sprite.hide()
 	%sprite.hide()
 	match grid_type:
+		Constants.GridType.BLOCKED_INVISIBLE:
+			%sprite.hide()
+			%left.monitorable = false
+			%right.monitorable = false
+			%top.monitorable = false
+			%bottom.monitorable = false
 		Constants.GridType.RAIL_VERTICAL:
 			%sprite.texture = vertical
 			%sprite.show()

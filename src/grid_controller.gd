@@ -39,6 +39,9 @@ func _unhandled_input(event):
 					pass
 					#cursor_current_state = CursorState.Selected
 					#set_grid_at_pos(pos, Constants.GridType.RAIL_HORIZONTAL)
+				Constants.GridType.BLOCKED_INVISIBLE:
+					# do nothing
+					pass
 				Constants.GridType.RAIL_JUNCTION_X:
 					if cursor_current_state == CursorState.Hovering:
 						var tile = get_real_tile_at_pos(pos)
@@ -60,6 +63,8 @@ func _process(_delta: float) -> void:
 			match tile:
 				Constants.GridType.EMPTY:
 					select_transition_state_to_hovering(tile_pos)
+				Constants.GridType.BLOCKED_INVISIBLE:
+					select_transition_state_to_none()
 				Constants.GridType.RAIL_JUNCTION_X:
 					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_90:
@@ -68,6 +73,9 @@ func _process(_delta: float) -> void:
 			match tile:
 				Constants.GridType.EMPTY:
 					select_transition_state_to_hovering(tile_pos)
+				Constants.GridType.BLOCKED_INVISIBLE:
+					select_transition_state_to_none()
+					# do nothing
 				Constants.GridType.RAIL_JUNCTION_X:
 					select_transition_state_to_hovering(tile_pos)
 				Constants.GridType.RAIL_JUNCTION_90:
