@@ -53,5 +53,7 @@
 
 11: 30 - 1:00 pm make build menu work
 
-1pm - ... make GUI for bottom right with build menu items
+1pm - 2:30 make GUI for bottom right with build menu items
 	detour, because of godot bug https://github.com/godotengine/godot-proposals/issues/3613
+
+2:30 - ....

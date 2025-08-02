@@ -18,6 +18,7 @@ enum JunctionType {
 }
 
 enum BuildOptions {
+	RECYCLE,
 	TRAIN,
 	RAIL_VERTICAL,
 	RAIL_HORIZONTAL,

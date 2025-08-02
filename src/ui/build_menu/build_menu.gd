@@ -4,13 +4,13 @@ class_name BuildMenuController
 var button_base_texture = preload("res://src/ui/ui_build_button_border.png")
 
 var options_to_sprite = {
+	Constants.BuildOptions.RECYCLE: preload("res://src/ui/ui_recycle_button.png"),
 	Constants.BuildOptions.TRAIN: preload("res://src/ui/build_menu/train_base.png"),
 	Constants.BuildOptions.RAIL_VERTICAL: preload("res://src/entities/gridtile/rail_vertical.png"),
 	Constants.BuildOptions.RAIL_HORIZONTAL: preload("res://src/entities/gridtile/rail_horizontal.png"),
 	Constants.BuildOptions.RAIL_JUNCTION_X: preload("res://src/ui/build_menu/rail_junction_horizontal_base.png"),
 	Constants.BuildOptions.RAIL_JUNCTION_90: preload("res://src/ui/build_menu/rail_junction_90_base.png"),
 }
-
 
 var player_resources = {
 	"tracks_horizontal": 0,
@@ -36,14 +36,15 @@ func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void
 		_:
 			if player_data.trains > 0:
 				options.append(Constants.BuildOptions.TRAIN)
+			options.append(Constants.BuildOptions.RECYCLE)
 	
 	for c in get_children():
 		c.queue_free()
 		remove_child(c)
 	
-	var radius = 32
+	var radius = 24
 	var center = Vector2(8, 8)
-	var button_size: Vector2 = Vector2(16, 16)
+	var button_size: Vector2 = Vector2(20, 20)
 	
 	var num_buttons = options.size()
 	var angle_step = 2 * PI / num_buttons
@@ -57,12 +58,13 @@ func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void
 		area.add_child(collision)
 		
 		# Create Sprite2D
-		var background_texture = Sprite2D.new()
+		var background_texture = Sprite2D.new() # 20/20
 		background_texture.texture = button_base_texture
 		area.add_child(background_texture)
 		
-		var sprite = Sprite2D.new()
+		var sprite = Sprite2D.new() #16/16
 		sprite.texture = options_to_sprite[options[i]]
+	#	sprite.position = Vector2(1, 1)
 		area.add_child(sprite)
 		
 		var angle = i * angle_step

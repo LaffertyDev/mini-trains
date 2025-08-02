@@ -9,12 +9,21 @@ func play_sound_defeat():
 	
 func play_sound_rotate_junction():
 	%sound_place_rotate_junction.play()
+	
+func play_sound_place_tile():
+	%sound_place_build_track.play()
+	
+func play_sound_recycle_tile():
+	%sound_place_recycle_track.play()
 
 func play_sound_cargo_pickup():
 	%sound_cargo_pickup.play()
 	
 func play_sound_cargo_dropoff():
 	%sound_cargo_dropoff.play()
+	
+func play_sound_click_tile():
+	%sound_click_tile.play()
 
 func play_sound_ticking_clock_doom():
 	if not is_playing_clock_of_doom:

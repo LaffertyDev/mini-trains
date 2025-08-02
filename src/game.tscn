@@ -26,7 +26,7 @@ script = ExtResource("2_xq6wo")
 [node name="station" parent="rail_grid" instance=ExtResource("2_3msxb")]
 
 [node name="gridtyle" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(96, 0)
+position = Vector2(64, 0)
 grid_type = 4
 junction_type = 1
 
@@ -46,106 +46,74 @@ grid_type = 1
 position = Vector2(32, 0)
 grid_type = 1
 
-[node name="gridtyle6" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-80, -16)
-grid_type = 1
-
 [node name="gridtyle8" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-96, 0)
+position = Vector2(-64, 16)
+grid_type = 2
+
+[node name="gridtyle10" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(-64, 32)
+grid_type = 2
+
+[node name="gridtyle11" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(-64, 48)
 grid_type = 2
 
 [node name="gridtyle15" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-96, 16)
+position = Vector2(64, 16)
 grid_type = 2
 
 [node name="gridtyle16" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(96, 16)
-grid_type = 3
-junction_type = 5
+position = Vector2(64, 32)
+grid_type = 2
 
-[node name="gridtyle10" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-80, 32)
-grid_type = 1
-
-[node name="gridtyle11" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-64, 32)
-grid_type = 1
-
-[node name="gridtyle12" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-48, 32)
-grid_type = 3
-
-[node name="gridtyle13" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-32, 32)
-grid_type = 1
-
-[node name="gridtyle17" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-16, 32)
-grid_type = 1
+[node name="gridtyle27" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(64, 48)
+grid_type = 2
 
 [node name="gridtyle18" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(0, 32)
+position = Vector2(-48, 64)
 grid_type = 1
 
 [node name="gridtyle19" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(16, 32)
-grid_type = 1
-
-[node name="gridtyle20" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(32, 32)
-grid_type = 1
-
-[node name="gridtyle21" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(48, 32)
-grid_type = 1
-
-[node name="gridtyle22" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(64, 32)
+position = Vector2(-32, 64)
 grid_type = 1
 
 [node name="gridtyle23" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(80, 32)
-grid_type = 1
-
-[node name="gridtyle3" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-48, 0)
 grid_type = 1
 
-[node name="gridtyle4" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-64, 0)
-grid_type = 4
-junction_type = 3
+[node name="gridtyle3" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(48, 64)
+grid_type = 1
+
+[node name="gridtyle28" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(32, 64)
+grid_type = 1
+
+[node name="gridtyle29" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(-16, 64)
+grid_type = 1
 
 [node name="gridtyle14" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(96, 32)
+position = Vector2(64, 64)
 grid_type = 4
 junction_type = 2
 
-[node name="gridtyle5" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-64, -16)
-grid_type = 4
-junction_type = 1
-
 [node name="gridtyle7" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-96, -16)
+position = Vector2(-64, 0)
 grid_type = 4
 junction_type = 0
 
 [node name="gridtyle9" parent="rail_grid" instance=ExtResource("5_pk08u")]
-position = Vector2(-96, 32)
+position = Vector2(-64, 64)
 grid_type = 4
 junction_type = 3
 
 [node name="ProducerStation" parent="rail_grid" instance=ExtResource("7_wqvko")]
-position = Vector2(64, 0)
+position = Vector2(0, 64)
 
 [node name="train" parent="." instance=ExtResource("6_wqvko")]
-position = Vector2(64, 32)
-metadata/_edit_lock_ = true
-
-[node name="train2" parent="." instance=ExtResource("6_wqvko")]
-position = Vector2(-31, 0)
-metadata/_edit_lock_ = true
+position = Vector2(-16, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -18,6 +18,7 @@ func select_transition_state_to_selected() -> void:
 	build_menu.position = grid_to_world_top_left(selected_tile)
 	build_menu.setup_build_options(get_tile_at_pos(selected_tile), get_tree().current_scene.get_player_data())
 	build_menu.show()
+	GlobalAudio.play_sound_click_tile()
 	
 func select_transition_state_to_hovering(tile: Vector2) -> void:
 	selected_tile = tile
@@ -33,6 +34,10 @@ func select_transition_state_to_none() -> void:
 	var build_menu: BuildMenuController = get_parent().get_build_menu()
 	build_menu.hide()
 	
+func remove_grid_tile_at_position(position: Vector2) -> void:
+	var real_grid = get_real_tile_at_pos(position)
+	real_grid.get_parent().call_deferred("remove_child", real_grid)
+	real_grid.call_deferred("queue_free")
 	
 func handle_left_click():
 	match cursor_current_state:
@@ -144,15 +149,27 @@ func grid_to_world_top_left(grid_pos: Vector2) -> Vector2:
 
 func _on_build_menu_option_was_built(option: Constants.BuildOptions) -> void:
 	match option:
+		Constants.BuildOptions.RECYCLE:
+			get_tree().current_scene.handle_recycle(get_tile_at_pos(selected_tile))
+			remove_grid_tile_at_position(selected_tile)
+			GlobalAudio.play_sound_recycle_tile()
 		Constants.BuildOptions.TRAIN:
 			spawn_train_at_position(selected_tile)
+			GlobalAudio.play_sound_place_tile() #TODO
 		Constants.BuildOptions.RAIL_VERTICAL:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_VERTICAL, Constants.JunctionType.EAST_SOUTH)
+			get_tree().current_scene.handle_build(option)
+			GlobalAudio.play_sound_place_tile()
 		Constants.BuildOptions.RAIL_HORIZONTAL:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_HORIZONTAL, Constants.JunctionType.EAST_SOUTH)
+			get_tree().current_scene.handle_build(option)
+			GlobalAudio.play_sound_place_tile()
 		Constants.BuildOptions.RAIL_JUNCTION_X:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_JUNCTION_X, Constants.JunctionType.VERTICAL)
+			get_tree().current_scene.handle_build(option)
+			GlobalAudio.play_sound_place_tile()
 		Constants.BuildOptions.RAIL_JUNCTION_90:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_JUNCTION_90, Constants.JunctionType.EAST_SOUTH)
+			get_tree().current_scene.handle_build(option)
+			GlobalAudio.play_sound_place_tile()
 	select_transition_state_to_none()
-	get_tree().current_scene.handle_build(option)

@@ -46,3 +46,15 @@ func handle_build(build_type: Constants.BuildOptions) -> void:
 		Constants.BuildOptions.RAIL_JUNCTION_90:
 			player_resources.tracks_junctions_90 -= 1
 	%Hud.sync_gui(player_resources)
+	
+func handle_recycle(piece: Constants.GridType) -> void:
+	match piece:
+		Constants.GridType.RAIL_VERTICAL:
+			player_resources.tracks_vertical += 1
+		Constants.GridType.RAIL_HORIZONTAL:
+			player_resources.tracks_horizontal += 1
+		Constants.GridType.RAIL_JUNCTION_X:
+			player_resources.tracks_junctions_x += 1
+		Constants.GridType.RAIL_JUNCTION_90:
+			player_resources.tracks_junctions_90 += 1
+	%Hud.sync_gui(player_resources)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7lqyxmpoal6"]
+[gd_scene load_steps=11 format=3 uid="uid://b7lqyxmpoal6"]
 
 [ext_resource type="Script" uid="uid://dwn8v8spqmvr0" path="res://src/audio/global_audio.gd" id="1_h6xn1"]
 [ext_resource type="AudioStream" uid="uid://bg1e30oxrfpvu" path="res://src/audio/sound_load_pickup.ogg" id="2_go2if"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://bsiqtmhyoxgng" path="res://src/audio/sound_click_rotate_junction.ogg" id="4_0ikp8"]
 [ext_resource type="AudioStream" uid="uid://dre5v4b27sgww" path="res://src/audio/ticks/ticking clock - tick1.wav" id="4_jlksr"]
 [ext_resource type="AudioStream" uid="uid://b1ohh122cnscc" path="res://src/audio/ticks/ticking clock - tick2.wav" id="5_6703h"]
+[ext_resource type="AudioStream" uid="uid://b5p2gvlidpjnj" path="res://src/audio/sound_click_place_building.ogg" id="6_blsvj"]
+[ext_resource type="AudioStream" uid="uid://31ulm25fybfm" path="res://src/audio/sound_click_tile.ogg" id="7_jvrte"]
+[ext_resource type="AudioStream" uid="uid://drhioqm1sc1a7" path="res://src/audio/sound_click_recycle_building.ogg" id="7_ywp5t"]
 
 [node name="GlobalAudio" type="Node"]
 script = ExtResource("1_h6xn1")
@@ -14,6 +17,10 @@ script = ExtResource("1_h6xn1")
 [node name="sound_cargo_pickup" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_go2if")
+
+[node name="sound_cargo_dropoff" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ngv3k")
 
 [node name="sound_defeat" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -23,9 +30,17 @@ stream = ExtResource("3_6703h")
 unique_name_in_owner = true
 stream = ExtResource("4_0ikp8")
 
-[node name="sound_cargo_dropoff" type="AudioStreamPlayer" parent="."]
+[node name="sound_place_build_track" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_ngv3k")
+stream = ExtResource("6_blsvj")
+
+[node name="sound_click_tile" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_jvrte")
+
+[node name="sound_place_recycle_track" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_ywp5t")
 
 [node name="sound_clock_tick_high" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

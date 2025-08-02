@@ -3,7 +3,8 @@ class_name TrackEngine
 
 var tiles_per_second = 1.0
 
-var speed = 20
+var base_speed = 50
+var speed = 0
 var stopped = false
 var movement_direction = Vector2(-1, 0)
 
@@ -31,9 +32,13 @@ func emit_direction():
 		
 func stop() -> void:
 	stopped = true
+	speed = 0
 	
 func move() -> void:
+	print("move")
 	stopped = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "speed", base_speed, 2.5)
 
 func lock_position_to_tile() -> void:
 	var grid: GridController = get_tree().current_scene.get_grid()

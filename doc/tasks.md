@@ -48,9 +48,7 @@ UI
 	* [x] Make Wagon Pixel Art
 	* [x] If producer sits idle with a resource, count DOWN [15 minutes]
 		* [x] Add a ticking clock sound when a producer is about to run out [15 minutes]
-	* Animate said timer (both ways) [30 minutes]
 * [x] Make going a train to a trainyard drops off train load [1 hour]
-	* Animate trian dropping off train load [1 hour]
 	* [x] Add sound for when a train drops off a load [15 minutes]
 * [x] Make clicking on a junction rotate it [10 minutes]
 	* [x] Play a sound [5 minutes]
@@ -61,10 +59,15 @@ UI
 		* [x] Add sound for clicking on a tile [5 minutes]
 	* [x] Build menu loads tiles you can place [30 minutes]
 	* [x] Clicking on tile places at pre-clicked coordinates [5 minutes]
-		* Add sound for building a track [5 minutes]
-* Add a UI to the bottom left showing current stored improvements [10 minutes]
-	* Add system for keeping track of current tiles [10 minutes]
-	* Make system work with build tile system
+* [x] Add a UI to the bottom left showing current stored improvements [10 minutes]
+	* [x] Add system for keeping track of current tiles [10 minutes]
+	* [x] Make system work with build tile system
+* [x] Add sound for building a track [5 minutes]
+* [x] Add support for removing a track
+* Add defeat logic and screen [30 minutes]
+	* When a defeat happens, slowly prompt user with their high score [10 minutes]
+	* Add a button to replay [5 minutes]
+	* [x] Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
 * Add tile improvement selector [3 hours]
 	* Every 60 seconds
 		* Generate a new train station
@@ -79,13 +82,10 @@ UI
 			* Junction - Rotate
 	* Add a ticking clock sound when a levelup is about to happen [15 minutes]
 	* Build menu for selecting improvements [30 minutes]
+* Animate production timer (both ways) [30 minutes]
 * Add camera movement, zoom, pan [30 minutes]
 * Add a tracker for how long the game has been running [10 minutes]
 * Add a tracker for the amount of loads the player has shipped [10 minutes]
-* Add defeat logic and screen [30 minutes]
-	* When a defeat happens, slowly prompt user with their high score [10 minutes]
-	* Add a button to replay [5 minutes]
-	* [x] Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
 
 
 BONUSES
@@ -97,9 +97,10 @@ BONUSES
 		* Plays Sound
 	* Tapping on a stopped train will start it
 		* Plays sound
-* Add a "recycle" button
-	* Clicking it transforms build menu mode to be recycle
-	* Destroying tiles lets you place them again
+* [x] Add a "recycle" button
+	* [x] Clicking it transforms build menu mode to be recycle
+	* [x] Destroying tiles lets you place them again
+	* Add ability to recycle junction tiles
 
 ANIMATION BONUSES
 * Add train derailment animation and effect
@@ -107,6 +108,8 @@ ANIMATION BONUSES
 * Improve train movement animation
 * Add birds or critters
 * Add animation for rotating the junctions
+* Animate trian dropping off train load [1 hour]
+* Animate trian picking up train load [1 hour]
 
 SOUND BONUSES
 * Add background music during play time [15 minutes]

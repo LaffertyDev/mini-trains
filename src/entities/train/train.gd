@@ -21,6 +21,7 @@ func _ready():
 			print("ERROR ERROR ERROR ERROR")
 	self.position = grid.grid_to_world_top_left(grid_position)
 	%TrackEngine.set_direction(starting_direction)
+	%TrackEngine.move()
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	print('ded')
