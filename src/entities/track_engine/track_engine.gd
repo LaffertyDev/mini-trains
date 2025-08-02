@@ -35,7 +35,6 @@ func stop() -> void:
 	speed = 0
 	
 func move() -> void:
-	print("move")
 	stopped = false
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "speed", base_speed, 2.5)
