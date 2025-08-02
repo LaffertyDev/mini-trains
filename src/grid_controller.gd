@@ -30,6 +30,3 @@ func grid_to_world_top_left(grid_pos: Vector2) -> Vector2:
 	var x = floor(grid_pos.x * SIZE_OF_GRIDS)
 	var y = floor(grid_pos.y * SIZE_OF_GRIDS)
 	return Vector2(x, y)
-
-func destroy_rail(grid_pos: Vector2) -> void:
-	pass

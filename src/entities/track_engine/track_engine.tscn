@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjbwlcir7j1fs"]
+
+[ext_resource type="Script" uid="uid://cv86hamfxxoja" path="res://src/entities/track_engine/track_engine.gd" id="1_gfmpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfmpa"]
+custom_solver_bias = 1.0
+size = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flebk"]
+size = Vector2(1, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2ks6"]
+size = Vector2(1, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cui1k"]
+size = Vector2(2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2befa"]
+size = Vector2(2, 1)
+
+[node name="TrackEngine" type="Node2D"]
+script = ExtResource("1_gfmpa")
+
+[node name="center" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center"]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gfmpa")
+
+[node name="left" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(4, 7)
+shape = SubResource("RectangleShape2D_flebk")
+
+[node name="right" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(10, 7)
+shape = SubResource("RectangleShape2D_v2ks6")
+
+[node name="bottom" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(7, 10)
+shape = SubResource("RectangleShape2D_cui1k")
+
+[node name="top" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+position = Vector2(7, 4)
+shape = SubResource("RectangleShape2D_2befa")
+
+[connection signal="area_entered" from="center" to="." method="_on_center_area_entered"]
+[connection signal="area_entered" from="left" to="." method="_on_left_area_entered"]
+[connection signal="area_exited" from="left" to="." method="_on_left_area_exited"]
+[connection signal="area_entered" from="right" to="." method="_on_right_area_entered"]
+[connection signal="area_exited" from="right" to="." method="_on_right_area_exited"]
+[connection signal="area_entered" from="bottom" to="." method="_on_bottom_area_entered"]
+[connection signal="area_exited" from="bottom" to="." method="_on_bottom_area_exited"]
+[connection signal="area_entered" from="top" to="." method="_on_top_area_entered"]
+[connection signal="area_exited" from="top" to="." method="_on_top_area_exited"]

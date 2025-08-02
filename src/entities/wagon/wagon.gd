@@ -1,12 +1,17 @@
 extends Node2D
 class_name Wagon
 
-var following
+var halted = false
 
-func _ready():
-	var train = get_tree().get_nodes_in_group("trains")[0]
-	following = train
+func set_movement_direction(direction: Vector2) -> void:
+	%TrackEngine.set_direction(direction)
 
-func _process(delta: float) -> void:
-	self.position = following.position - (following.movement_direction * 20)
-	
+func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
+	print('the fuck')
+	pass # Replace with function body.
+
+func move() -> void:
+	%TrackEngine.move()
+
+func stop() -> void:
+	%TrackEngine.stop()

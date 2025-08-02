@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bnofxuo3vbq5l"]
+[gd_scene load_steps=8 format=4 uid="uid://bnofxuo3vbq5l"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://b6p7be63sci1p" path="res://src/grid_controller.gd" id="2_xq6wo"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="5_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_wqvko"]
-[ext_resource type="PackedScene" uid="uid://yna7gdqgj4jv" path="res://src/entities/wagon/wagon.tscn" id="7_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="7_wqvko"]
 
 [node name="game" type="Node2D"]
@@ -136,10 +135,8 @@ junction_type = 3
 
 [node name="train" parent="rail_grid" instance=ExtResource("6_wqvko")]
 position = Vector2(64, 32)
+initial_facing_direction = 3
 metadata/_edit_lock_ = true
-
-[node name="wagon" parent="rail_grid" instance=ExtResource("7_cdx1q")]
-position = Vector2(-14, -2)
 
 [node name="train2" parent="rail_grid" instance=ExtResource("6_wqvko")]
 position = Vector2(-31, 0)
