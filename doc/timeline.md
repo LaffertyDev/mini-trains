@@ -51,4 +51,7 @@
 
 11 - 11:30 make state machine for basic grid selection system, add some more tile types
 
-11: 30 - ... build build menu and options
+11: 30 - 1:00 pm make build menu work
+
+1pm - ... make GUI for bottom right with build menu items
+	detour, because of godot bug https://github.com/godotengine/godot-proposals/issues/3613

@@ -15,3 +15,15 @@ func _ready():
 
 func get_grid() -> GridController:
 	return %rail_grid
+
+func get_build_menu() -> BuildMenuController:
+	return %BuildMenu
+
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			rail_grid_controller.handle_left_click()
+			
+		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			rail_grid_controller.handle_right_click()

@@ -1,0 +1,158 @@
+[gd_scene load_steps=7 format=3 uid="uid://fxbedv8vi18g"]
+
+[ext_resource type="Texture2D" uid="uid://cfs42cr3pra5u" path="res://src/ui/ui_build_button_border.png" id="1_cvkdw"]
+[ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="1_jobw0"]
+[ext_resource type="Texture2D" uid="uid://dmegi2foiejs" path="res://src/entities/gridtile/rail_horizontal.png" id="3_udh2q"]
+[ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="4_076te"]
+[ext_resource type="Texture2D" uid="uid://5obsg2kvuwoq" path="res://assets_source/rail_junction_90_base.png" id="5_ariom"]
+[ext_resource type="Texture2D" uid="uid://nvmpjtwuaxlc" path="res://src/ui/build_menu/rail_junction_horizontal_base.png" id="6_cio14"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.5
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="VerticalRails" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VerticalRails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VerticalRails/VBoxContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/VerticalRails/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvkdw")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/HBoxContainer/VerticalRails/VBoxContainer/Sprite2D2"]
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("1_jobw0")
+
+[node name="HorizontalRails" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HorizontalRails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HorizontalRails/VBoxContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/HorizontalRails/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvkdw")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/HBoxContainer/HorizontalRails/VBoxContainer/Sprite2D2"]
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("3_udh2q")
+
+[node name="Trains" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Trains"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Trains/VBoxContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/Trains/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvkdw")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/HBoxContainer/Trains/VBoxContainer/Sprite2D2"]
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("4_076te")
+
+[node name="Junctions90" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Junctions90"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Junctions90/VBoxContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/Junctions90/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvkdw")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/HBoxContainer/Junctions90/VBoxContainer/Sprite2D2"]
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("5_ariom")
+
+[node name="JunctionsX" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/JunctionsX"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/JunctionsX/VBoxContainer"]
+layout_mode = 2
+text = "7"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/JunctionsX/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cvkdw")
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/HBoxContainer/JunctionsX/VBoxContainer/Sprite2D2"]
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("6_cio14")

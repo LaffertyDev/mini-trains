@@ -14,7 +14,7 @@ var selected_tile = null
 
 func select_transition_state_to_selected() -> void:
 	cursor_current_state = CursorState.Selected
-	var build_menu = get_parent().get_node("BuildMenu")
+	var build_menu: BuildMenuController = get_parent().get_build_menu()
 	build_menu.position = grid_to_world_top_left(selected_tile)
 	build_menu.setup_build_options(get_tile_at_pos(selected_tile))
 	build_menu.show()
@@ -31,42 +31,41 @@ func select_transition_state_to_none() -> void:
 	selected_tile = null
 	cursor_current_state = CursorState.None
 	%highlight_marker.hide()
-	var build_menu = get_parent().get_node("BuildMenu")
+	var build_menu: BuildMenuController = get_parent().get_build_menu()
 	build_menu.hide()
-
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			match cursor_current_state:
-				CursorState.Hovering:
-					# select current selectable tile
-					var pos = world_to_grid(get_global_mouse_position())
-					var tile_at_position = get_tile_at_pos(pos)
-					match tile_at_position:
-						Constants.GridType.EMPTY:
-							select_transition_state_to_selected()
-							pass
-						Constants.GridType.RAIL_HORIZONTAL:
-							select_transition_state_to_selected()
-							pass
-						Constants.GridType.RAIL_VERTICAL:
-							select_transition_state_to_selected()
-							pass
-						Constants.GridType.BLOCKED_INVISIBLE:
-							# do nothing
-							pass
-						Constants.GridType.RAIL_JUNCTION_X:
-							if cursor_current_state == CursorState.Hovering:
-								var tile = get_real_tile_at_pos(pos)
-								tile.rotate_tile()
-						Constants.GridType.RAIL_JUNCTION_90:
-							if cursor_current_state == CursorState.Hovering:
-								var tile = get_real_tile_at_pos(pos)
-								tile.rotate_tile()
 	
-		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			if cursor_current_state == CursorState.Selected:
-				select_transition_state_to_none()
+	
+func handle_left_click():
+	match cursor_current_state:
+		CursorState.Hovering:
+			# select current selectable tile
+			var pos = world_to_grid(get_global_mouse_position())
+			var tile_at_position = get_tile_at_pos(pos)
+			match tile_at_position:
+				Constants.GridType.EMPTY:
+					select_transition_state_to_selected()
+					pass
+				Constants.GridType.RAIL_HORIZONTAL:
+					select_transition_state_to_selected()
+					pass
+				Constants.GridType.RAIL_VERTICAL:
+					select_transition_state_to_selected()
+					pass
+				Constants.GridType.BLOCKED_INVISIBLE:
+					# do nothing
+					pass
+				Constants.GridType.RAIL_JUNCTION_X:
+					if cursor_current_state == CursorState.Hovering:
+						var tile = get_real_tile_at_pos(pos)
+						tile.rotate_tile()
+				Constants.GridType.RAIL_JUNCTION_90:
+					if cursor_current_state == CursorState.Hovering:
+						var tile = get_real_tile_at_pos(pos)
+						tile.rotate_tile()
+	
+func handle_right_click():
+	if cursor_current_state == CursorState.Selected:
+		select_transition_state_to_none()
 	
 func _process(_delta: float) -> void:
 	var tile_pos = world_to_grid(get_global_mouse_position())

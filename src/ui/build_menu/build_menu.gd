@@ -1,6 +1,7 @@
 extends Node2D
+class_name BuildMenuController
 
-
+var button_base_texture = preload("res://src/ui/ui_build_button_border.png")
 
 var options_to_sprite = {
 	Constants.BuildOptions.TRAIN: preload("res://src/ui/build_menu/train_base.png"),
@@ -33,20 +34,39 @@ func setup_build_options(for_tile_type: Constants.GridType) -> void:
 	
 	var radius = 32
 	var center = Vector2(8, 8)
+	var button_size: Vector2 = Vector2(16, 16)
 	
 	var num_buttons = options.size()
 	var angle_step = 2 * PI / num_buttons
-	var button_size = 20
 	
 	for i in range(num_buttons):
-		var ui_button = Button.new()
+		var area = Area2D.new()
+		var collision = CollisionShape2D.new()
+		var rect_shape = RectangleShape2D.new()
+		rect_shape.size = button_size
+		collision.shape = rect_shape
+		area.add_child(collision)
+		
+		# Create Sprite2D
+		var background_texture = Sprite2D.new()
+		background_texture.texture = button_base_texture
+		area.add_child(background_texture)
+		
+		var sprite = Sprite2D.new()
+		sprite.texture = options_to_sprite[options[i]]
+		area.add_child(sprite)
+		
 		var angle = i * angle_step
-		var x = center.x + radius * cos(angle) - button_size / 2
-		var y = center.y + radius * sin(angle) - button_size / 2
-		ui_button.position = Vector2(x, y)
-		ui_button.pressed.connect(_handle_pressed.bind(options[i]))
-		ui_button.icon = options_to_sprite[options[i]]
-		add_child(ui_button)
+		var x = radius * cos(angle) + center.x
+		var y = radius * sin(angle) + center.y
+		area.position = Vector2(x, y)
+		
+		add_child(area)
+		area.input_event.connect(_handle_pressed.bind(options[i]))
 
-func _handle_pressed(build_option: Constants.BuildOptions) -> void:
-	option_was_built.emit(build_option)
+func _handle_pressed(viewport: Node, event: InputEvent, shape_idx: int, build_option: Constants.BuildOptions):	
+	if event is InputEventMouseButton:
+		var mouse_event = event as InputEventMouseButton
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			print("Clicked")
+			option_was_built.emit(build_option)
