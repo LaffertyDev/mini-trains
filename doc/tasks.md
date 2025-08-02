@@ -54,7 +54,7 @@ UI
 	* [x] Add sound for when a train drops off a load [15 minutes]
 * [x] Make clicking on a junction rotate it [10 minutes]
 	* [x] Play a sound [5 minutes]
-* Separate rotation junctions from X junctions [20 minutes]
+* [x] Separate rotation junctions from X junctions [20 minutes]
 * Make clicking on a tile pull up the build menu [1.5 hours]
 	* Highlight selectable tile with mouse [10 minutes]
 	* Highlight selected tile [10 minutes]

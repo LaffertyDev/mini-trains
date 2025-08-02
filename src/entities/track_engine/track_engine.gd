@@ -72,7 +72,7 @@ func _on_center_area_entered(area: Area2D) -> void:
 		enter_station.emit(station)
 	var tile := area as GridTile
 	if tile:
-		if area.grid_type == Constants.GridType.RAIL_JUNCTION:
+		if area.grid_type == Constants.GridType.RAIL_JUNCTION_X or area.grid_type == Constants.GridType.RAIL_JUNCTION_90:
 			var grid: GridController = get_tree().current_scene.get_grid()
 			var grid_position = grid.world_to_grid(area.global_position)
 			var train_position_in_grid = grid.grid_to_world_top_left(grid_position)

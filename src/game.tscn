@@ -25,7 +25,7 @@ script = ExtResource("2_xq6wo")
 
 [node name="gridtyle" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(96, 0)
-grid_type = 3
+grid_type = 4
 junction_type = 1
 
 [node name="gridtyle2" parent="rail_grid" instance=ExtResource("5_pk08u")]
@@ -111,27 +111,27 @@ grid_type = 1
 
 [node name="gridtyle4" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 0)
-grid_type = 3
+grid_type = 4
 junction_type = 3
 
 [node name="gridtyle14" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(96, 32)
-grid_type = 3
+grid_type = 4
 junction_type = 2
 
 [node name="gridtyle5" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, -16)
-grid_type = 3
+grid_type = 4
 junction_type = 1
 
 [node name="gridtyle7" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-96, -16)
-grid_type = 3
+grid_type = 4
 junction_type = 0
 
 [node name="gridtyle9" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-96, 32)
-grid_type = 3
+grid_type = 4
 junction_type = 3
 
 [node name="train" parent="rail_grid" instance=ExtResource("6_wqvko")]

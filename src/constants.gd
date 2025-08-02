@@ -1,5 +1,5 @@
 class_name Constants
-enum GridType { EMPTY, RAIL_HORIZONTAL, RAIL_VERTICAL, RAIL_JUNCTION }
+enum GridType { EMPTY, RAIL_HORIZONTAL, RAIL_VERTICAL, RAIL_JUNCTION_X, RAIL_JUNCTION_90 }
 
 enum JunctionType { 
 	EAST_SOUTH = 0,

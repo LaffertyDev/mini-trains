@@ -16,7 +16,9 @@ func _unhandled_input(event):
 			var tile_at_position = get_real_tile_at_pos(pos)
 			if tile_at_position:
 				match tile_at_position.grid_type:
-					Constants.GridType.RAIL_JUNCTION:
+					Constants.GridType.RAIL_JUNCTION_X:
+						tile_at_position.rotate_tile()
+					Constants.GridType.RAIL_JUNCTION_90:
 						tile_at_position.rotate_tile()
 			else:
 				set_grid_at_pos(pos, Constants.GridType.RAIL_HORIZONTAL)
