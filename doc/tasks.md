@@ -68,11 +68,13 @@ UI
 	* [x] When a defeat happens, slowly prompt user with their high score [10 minutes]
 	* [x] Add a button to replay [5 minutes]
 	* [x] Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
+* [x] Make production spawner
+	* [x] Every 60 seconds
+		* [x] Generate a new train station
+			* [x] Find space to put it into world
+			* [x] Place it
+* Make trains die if they go off rails
 * Add tile improvement selector [3 hours]
-	* Every 60 seconds
-		* Generate a new train station
-			* Find space to put it into world
-			* Place it
 		* Pull up a pick-three menu to load resources
 			* Train
 				* Spawns at the root railyard, Idled
@@ -128,3 +130,7 @@ BONUSES
 * Tune starting resources, timers, level ups
 
 
+
+BUG TRACKER
+
+* Trains do not die anymore when they enter some rotations

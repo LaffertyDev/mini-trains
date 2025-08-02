@@ -5,6 +5,7 @@ class_name GridController
 var train_scene = preload("res://src/entities/train/train.tscn")
 var rail_scene = preload("res://src/entities/gridtile/gridtile.tscn")
 var build_menu_scene = preload("res://src/ui/build_menu/build_menu.tscn")
+var producer_station_scene = preload("res://src/entities/producer_station/producer_station.tscn")
 
 var SIZE_OF_GRIDS = 16
 
@@ -38,7 +39,12 @@ func remove_grid_tile_at_position(pos: Vector2) -> void:
 	var real_grid = get_real_tile_at_pos(pos)
 	real_grid.get_parent().call_deferred("remove_child", real_grid)
 	real_grid.call_deferred("queue_free")
-	
+
+func _input(_ev):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		if cursor_current_state == CursorState.Selected:
+			select_transition_state_to_none()
+
 func handle_left_click():
 	match cursor_current_state:
 		CursorState.Hovering:
@@ -115,6 +121,11 @@ func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType, junction_
 	rail.grid_type = grid_type
 	rail.junction_type = junction_type
 	add_child(rail)
+	
+func setup_producer_at_pos(grid_pos: Vector2) -> void:
+	var producer = producer_station_scene.instantiate()
+	producer.position = grid_to_world_top_left(grid_pos)
+	get_parent().add_child(producer)
 	
 func spawn_train_at_position(grid_pos: Vector2) -> void:
 	var train = train_scene.instantiate()

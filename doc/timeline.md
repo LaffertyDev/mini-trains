@@ -56,4 +56,4 @@
 1pm - 2:30 make GUI for bottom right with build menu items
 	detour, because of godot bug https://github.com/godotengine/godot-proposals/issues/3613
 
-2:30 - ....
+2:30 - 5:00 add scoring mechanism, add random station generation

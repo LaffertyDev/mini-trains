@@ -28,13 +28,14 @@ grid_type = 1
 [node name="resource_production_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="decay_death_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 15.0
+wait_time = 60.0
 one_shot = true
 
 [node name="hack_label" type="Label" parent="."]

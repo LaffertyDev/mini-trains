@@ -24,8 +24,8 @@ func _ready():
 	%TrackEngine.move()
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
-	print('ded')
-	pass # Replace with function body.
+	get_parent().call_deferred("remove_child", self)
+	self.call_deferred("queue_free")
 
 func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
 	match direction:

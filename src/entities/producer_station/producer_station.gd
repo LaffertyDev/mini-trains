@@ -10,6 +10,9 @@ func has_production_ready():
 func take_production():
 	currently_produced -= 1
 	update_state()
+	
+func _ready():
+	add_to_group("producers")
 
 func _process(_delta: float):
 	%hack_label.text = str(%decay_death_timer.time_left).pad_decimals(2)

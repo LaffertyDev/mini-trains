@@ -62,6 +62,7 @@ position = Vector2(7, 4)
 shape = SubResource("RectangleShape2D_2befa")
 
 [connection signal="area_entered" from="center" to="." method="_on_center_area_entered"]
+[connection signal="area_exited" from="center" to="." method="_on_center_area_exited"]
 [connection signal="area_entered" from="left" to="." method="_on_left_area_entered"]
 [connection signal="area_exited" from="left" to="." method="_on_left_area_exited"]
 [connection signal="area_entered" from="right" to="." method="_on_right_area_entered"]

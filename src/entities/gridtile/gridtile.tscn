@@ -60,8 +60,8 @@ shape = SubResource("RectangleShape2D_bxte2")
 
 [node name="right" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 128
+collision_layer = 128
+collision_mask = 0
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="right"]
 position = Vector2(15.5, 8)

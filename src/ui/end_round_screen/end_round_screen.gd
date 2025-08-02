@@ -8,6 +8,5 @@ func _ready() -> void:
 	%stat_distance.text = str(PlayerData.stat_trains_distance_moved)
 	%stat_score.text = str(PlayerData.compute_score())
 
-
 func _on_play_again_pressed() -> void:
 	get_tree().change_scene_to_file("res://src/game.tscn")
