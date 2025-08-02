@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5i0vrqxhrqae"
+path="res://.godot/imported/ticking clock - tick4.wav-7805dfe79bd5f0cf8389f96de445732c.sample"
+
+[deps]
+
+source_file="res://src/audio/ticks/ticking clock - tick4.wav"
+dest_files=["res://.godot/imported/ticking clock - tick4.wav-7805dfe79bd5f0cf8389f96de445732c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,7 +1,7 @@
 extends Area2D
 class_name ProducerStation
 
-var currently_produced = 0
+var currently_produced = 1
 var maximum_held_production = 1
 	
 func has_production_ready():

@@ -1,6 +1,5 @@
-class_name GridTile
-
 extends Area2D
+class_name Train
 
 var tiles_per_second = 1.0
 
@@ -17,6 +16,14 @@ var right: Area2D
 
 enum Direction {left, top, bottom, right}
 @export var InitialDirection: Direction = Direction.right
+
+func _ready():
+	left = %left
+	bottom = %bottom
+	top = %top
+	right = %right
+	set_speed()
+	add_to_group("trains")
 
 func set_speed():
 	match InitialDirection:
@@ -40,12 +47,6 @@ func set_anim_match_direction():
 	if movement_direction.y > 0:
 		%animated_sprite.play("moving_bottom")
 
-func _ready():
-	left = %left
-	bottom = %bottom
-	top = %top
-	right = %right
-	set_speed()
 
 func _physics_process(delta: float) -> void:
 	if %stop_timer.is_stopped():
@@ -81,6 +82,7 @@ func _on_center_area_entered(area: Area2D) -> void:
 	if producer_station:
 		if producer_station.has_production_ready() and not holding_cargo:
 			producer_station.take_production()
+			GlobalAudio.play_sound_cargo_pickup()
 			self.holding_cargo = true
 			%stop_timer.start()
 			var grid: GridController = get_tree().current_scene.get_grid()
@@ -91,6 +93,7 @@ func _on_center_area_entered(area: Area2D) -> void:
 	if station:
 		if holding_cargo:
 			station.take_cargo()
+			GlobalAudio.play_sound_cargo_dropoff()
 			self.holding_cargo = false
 			%stop_timer.start()
 			var grid: GridController = get_tree().current_scene.get_grid()

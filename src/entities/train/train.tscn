@@ -37,6 +37,7 @@ unique_name_in_owner = true
 position = Vector2(8, 6)
 sprite_frames = ExtResource("1_r56mm")
 animation = &"moving_left"
+metadata/_edit_lock_ = true
 
 [node name="center" type="Area2D" parent="."]
 collision_layer = 0

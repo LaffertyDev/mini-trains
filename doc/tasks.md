@@ -35,7 +35,7 @@ UI
 	* [x] Train station timer to generate resources [30 minutes]
 	* [x] Make train stations navigable with the rail system [30 minutes]
 	* [x] Make train stop when it goes to a station
-	* Add sound for when a train picks up a load [30 minutes]
+	* [x] Add sound for when a train picks up a load [30 minutes]
 	* Make train picking up load visually distinctive [1 hour]
 		* Make a rail car follow it?
 	* Animate said timer [30 minutes]

@@ -1,6 +1,7 @@
 @tool
 
 extends Area2D
+class_name GridTile
 
 @export var grid_type: Constants.GridType = Constants.GridType.EMPTY:
 	set(new_resource):

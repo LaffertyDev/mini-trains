@@ -1,7 +1,7 @@
 extends Node
 
 func play_sound_cargo_pickup():
-	pass
+	%sound_cargo_pickup.play()
 	
 func play_sound_cargo_dropoff():
-	pass
+	%sound_cargo_dropoff.play()

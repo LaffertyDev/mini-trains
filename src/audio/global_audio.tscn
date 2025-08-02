@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7lqyxmpoal6"]
+[gd_scene load_steps=4 format=3 uid="uid://b7lqyxmpoal6"]
 
 [ext_resource type="Script" uid="uid://dwn8v8spqmvr0" path="res://src/audio/global_audio.gd" id="1_h6xn1"]
+[ext_resource type="AudioStream" uid="uid://bg1e30oxrfpvu" path="res://src/audio/sound_load_pickup.ogg" id="2_go2if"]
+[ext_resource type="AudioStream" uid="uid://c6fstqyqcqgyn" path="res://src/audio/sound_load_dropoff.ogg" id="3_ngv3k"]
 
 [node name="GlobalAudio" type="Node"]
 script = ExtResource("1_h6xn1")
 
 [node name="sound_cargo_pickup" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_go2if")
+
+[node name="sound_cargo_dropoff" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ngv3k")
