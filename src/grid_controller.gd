@@ -3,6 +3,7 @@ extends Node2D
 class_name GridController
 
 var rail_scene = preload("res://src/entities/gridtile/gridtile.tscn")
+var build_menu_scene = preload("res://src/ui/build_menu/build_menu.tscn")
 
 var SIZE_OF_GRIDS = 16
 
@@ -12,6 +13,11 @@ var selected_tile = null
 
 func select_transition_state_to_selected() -> void:
 	cursor_current_state = CursorState.Selected
+	var build_menu = get_parent().get_node("BuildMenu")
+	build_menu.position = grid_to_world_top_left(selected_tile)
+	build_menu.setup_build_options()
+	build_menu.show()
+	
 	
 func select_transition_state_to_hovering(tile: Vector2) -> void:
 	selected_tile = tile
@@ -24,9 +30,8 @@ func select_transition_state_to_none() -> void:
 	selected_tile = null
 	cursor_current_state = CursorState.None
 	%highlight_marker.hide()
-
-func select_state_transition_to(tile_state_switch_to: CursorState) -> void:
-	pass
+	var build_menu = get_parent().get_node("BuildMenu")
+	build_menu.hide()
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -86,10 +91,11 @@ func _process(_delta: float) -> void:
 		CursorState.Selected:
 			pass
 
-func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType) -> void:
+func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType, junction_type: Constants.JunctionType) -> void:
 	var rail = rail_scene.instantiate()
 	rail.position = grid_to_world_top_left(grid_pos)
 	rail.grid_type = grid_type
+	rail.junction_type = junction_type
 	add_child(rail)
 	
 func get_tile_at_pos(grid_pos: Vector2) -> Constants.GridType:
@@ -117,3 +123,18 @@ func grid_to_world_top_left(grid_pos: Vector2) -> Vector2:
 	var x = floor(grid_pos.x * SIZE_OF_GRIDS)
 	var y = floor(grid_pos.y * SIZE_OF_GRIDS)
 	return Vector2(x, y)
+
+func _on_build_menu_option_was_built(option: Constants.BuildOptions) -> void:
+	match option:
+		Constants.BuildOptions.TRAIN:
+			print("TODO")
+			pass
+		Constants.BuildOptions.RAIL_VERTICAL:
+			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_VERTICAL, Constants.JunctionType.EAST_SOUTH)
+		Constants.BuildOptions.RAIL_HORIZONTAL:
+			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_HORIZONTAL, Constants.JunctionType.EAST_SOUTH)
+		Constants.BuildOptions.RAIL_JUNCTION_X:
+			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_JUNCTION_X, Constants.JunctionType.VERTICAL)
+		Constants.BuildOptions.RAIL_JUNCTION_90:
+			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_JUNCTION_90, Constants.JunctionType.EAST_SOUTH)
+	select_transition_state_to_none()

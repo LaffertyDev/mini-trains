@@ -50,3 +50,5 @@
 11am start
 
 11 - 11:30 make state machine for basic grid selection system, add some more tile types
+
+11: 30 - ... build build menu and options

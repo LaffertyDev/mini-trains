@@ -17,6 +17,14 @@ enum JunctionType {
 	VERTICAL = 5
 }
 
+enum BuildOptions {
+	TRAIN,
+	RAIL_VERTICAL,
+	RAIL_HORIZONTAL,
+	RAIL_JUNCTION_X,
+	RAIL_JUNCTION_90
+}
+
 enum Direction {left, top, bottom, right}
 
 const GRID_TILE_SIZE_PIXELS: int = 16

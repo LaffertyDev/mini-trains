@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://tk1v82gu2kog"]
+
+[ext_resource type="FontFile" uid="uid://decdduirawf2t" path="res://src/ui/m5x7.ttf" id="1_yyflw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyflw"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[resource]
+default_base_scale = 0.33
+default_font = ExtResource("1_yyflw")
+default_font_size = 16
+Button/fonts/font = ExtResource("1_yyflw")
+Button/styles/normal = SubResource("StyleBoxFlat_yyflw")

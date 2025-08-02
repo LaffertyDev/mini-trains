@@ -57,14 +57,12 @@ UI
 * [x] Separate rotation junctions from X junctions [20 minutes]
 * Make clicking on a tile pull up the build menu [1.5 hours]
 	* [x] Highlight selectable tile with mouse [10 minutes]
-	* Highlight selected tile [10 minutes]
-		* Add sound for clicking on a tile [5 minutes]
+	* [x] Highlight selected tile [10 minutes]
+		* [x] Add sound for clicking on a tile [5 minutes]
 	* Add system for keeping track of current tiles [10 minutes]
 	* Build menu loads tiles you can place [30 minutes]
 	* Clicking on tile places at pre-clicked coordinates [5 minutes]
 		* Add sound for building a track [5 minutes]
-* Add camera movement, zoom, pan [30 minutes]
-* Add a UI to the bottom left showing current stored improvements [10 minutes]
 * Add tile improvement selector [3 hours]
 	* Every 60 seconds
 		* Generate a new train station
@@ -79,6 +77,8 @@ UI
 			* Junction - Rotate
 	* Add a ticking clock sound when a levelup is about to happen [15 minutes]
 	* Build menu for selecting improvements [30 minutes]
+* Add camera movement, zoom, pan [30 minutes]
+* Add a UI to the bottom left showing current stored improvements [10 minutes]
 * Add a tracker for how long the game has been running [10 minutes]
 * Add a tracker for the amount of loads the player has shipped [10 minutes]
 * Add defeat logic and screen [30 minutes]
