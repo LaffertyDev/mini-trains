@@ -28,6 +28,14 @@ UI
 * Main rail station clock is level-up clock of the game
 
 
+## how to make rail car follow train
+
+* Just bind it and rotate it when the train moves
+
+* Keep track of current tile and my train's tile
+* when my train switches direction and then I leave my current tile, go to my trains new direction
+
+
 ### CODE
 
 * Make train station spawn resource and animate [4 hours]
@@ -36,8 +44,8 @@ UI
 	* [x] Make train stations navigable with the rail system [30 minutes]
 	* [x] Make train stop when it goes to a station
 	* [x] Add sound for when a train picks up a load [30 minutes]
-	* Make train picking up load visually distinctive [1 hour]
-		* Make a rail car follow it?
+	* [x] Make train picking up load visually distinctive [2 hours hour]
+	* Make Wagon Pixel Art
 	* Animate said timer [30 minutes]
 	* If producer sits idle with a resource, count DOWN [15 minutes]
 		* Add a ticking clock sound when a producer is about to run out [15 minutes]

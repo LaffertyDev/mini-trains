@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ywarcye4j8k0"]
+
+[ext_resource type="Texture2D" uid="uid://c8ttplwmuyaml" path="res://src/entities/wagon/wagons.png" id="1_11omm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k2f4"]
+atlas = ExtResource("1_11omm")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt0el"]
+atlas = ExtResource("1_11omm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vngqr"]
+atlas = ExtResource("1_11omm")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfyr3"]
+atlas = ExtResource("1_11omm")
+region = Rect2(0, 48, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k2f4")
+}],
+"loop": true,
+"name": &"moving_bottom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt0el")
+}],
+"loop": true,
+"name": &"moving_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vngqr")
+}],
+"loop": true,
+"name": &"moving_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfyr3")
+}],
+"loop": true,
+"name": &"moving_top",
+"speed": 5.0
+}]

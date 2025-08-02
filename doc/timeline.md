@@ -37,3 +37,8 @@
 12:30 - 3:30 break/walk/chores
 
 3:30 - 4 think about how points / scoring / logistics works
+
+4 - 6 get producing stations working and stopping the trains / picking up cargo
+
+6 - 7 dinner
+7 - 9 get wagon following working

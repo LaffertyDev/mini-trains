@@ -64,7 +64,7 @@ func _on_track_engine_enter_producer(producer: ProducerStation) -> void:
 		%TrackEngine.stop()
 		
 		var wagon = wagon_res.instantiate()
-		wagon.position = self.position - (%TrackEngine.movement_direction * 16)
+		wagon.position = self.position - (%TrackEngine.movement_direction * 19)
 		wagon.set_movement_direction(%TrackEngine.movement_direction)
 		wagons_following.append(wagon)
 		wagon.stop()
