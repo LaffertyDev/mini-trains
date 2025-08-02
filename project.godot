@@ -15,6 +15,10 @@ run/main_scene="uid://bnofxuo3vbq5l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalAudio="*res://src/audio/global_audio.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -25,7 +29,7 @@ window/stretch/scale=3.0
 [layer_names]
 
 2d_physics/layer_6="Center Tiles"
-2d_physics/layer_7="Junctions"
+2d_physics/layer_7="Stop Tiles"
 2d_physics/layer_8="Grid Tyle Boundary"
 
 [rendering]

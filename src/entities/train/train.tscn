@@ -20,8 +20,13 @@ size = Vector2(2, 1)
 
 [node name="train" type="Area2D"]
 collision_layer = 0
-collision_mask = 64
+collision_mask = 0
 script = ExtResource("1_fmutq")
+
+[node name="stop_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 7)
@@ -35,7 +40,7 @@ animation = &"moving_left"
 
 [node name="center" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 32
+collision_mask = 96
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center"]
 position = Vector2(8, 8)
@@ -77,6 +82,7 @@ collision_mask = 128
 position = Vector2(8, 2.5)
 shape = SubResource("RectangleShape2D_s0j5y")
 
+[connection signal="timeout" from="stop_timer" to="." method="_on_stop_timer_timeout"]
 [connection signal="area_entered" from="center" to="." method="_on_center_area_entered"]
 [connection signal="area_exited" from="center" to="." method="_on_center_area_exited"]
 [connection signal="area_entered" from="left" to="." method="_on_left_area_entered"]

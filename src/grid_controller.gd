@@ -16,7 +16,7 @@ func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType) -> void:
 func get_tile_at_pos(grid_pos: Vector2) -> Constants.GridType:
 	var gridtiles = get_tree().get_nodes_in_group("grid_tiles")
 	for gt in gridtiles:
-		var grid_position = world_to_grid(gt.position)
+		var grid_position = world_to_grid(gt.global_position)
 		if grid_position == grid_pos:
 			return gt.grid_type
 	return Constants.GridType.EMPTY

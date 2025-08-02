@@ -1,9 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxncjxvequh88"]
+[gd_scene load_steps=5 format=3 uid="uid://bxncjxvequh88"]
 
 [ext_resource type="Texture2D" uid="uid://detyf4yljr8in" path="res://src/entities/station/train_station.png" id="1_8msu0"]
+[ext_resource type="Script" uid="uid://svxicglmi5ri" path="res://src/entities/station/station.gd" id="1_xxcsl"]
+[ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="2_agjdm"]
 
-[node name="station" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agjdm"]
+size = Vector2(1, 4)
+
+[node name="station" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_xxcsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -16)
 texture = ExtResource("1_8msu0")
+
+[node name="gridtyle" parent="." instance=ExtResource("2_agjdm")]
+visible = false
+grid_type = 1
+
+[node name="gridtyle2" parent="." instance=ExtResource("2_agjdm")]
+visible = false
+position = Vector2(16, 0)
+grid_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 8)
+shape = SubResource("RectangleShape2D_agjdm")

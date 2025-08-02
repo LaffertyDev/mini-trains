@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://vlku18eqlx5i"]
+
+[ext_resource type="Script" uid="uid://debg5iw4r2qj2" path="res://src/entities/producer_station/producer_station.gd" id="1_lh65p"]
+[ext_resource type="Texture2D" uid="uid://drorjmoyn8use" path="res://src/entities/producer_station/producer_pickup.png" id="1_ua3dl"]
+[ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="3_uuqnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuqnp"]
+size = Vector2(1, 4)
+
+[node name="ProducerStation" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_lh65p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -16)
+texture = ExtResource("1_ua3dl")
+
+[node name="gridtyle" parent="." instance=ExtResource("3_uuqnp")]
+visible = false
+grid_type = 1
+
+[node name="gridtyle2" parent="." instance=ExtResource("3_uuqnp")]
+visible = false
+position = Vector2(16, 0)
+grid_type = 1
+
+[node name="resource_production_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="decay_death_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 15.0
+one_shot = true
+
+[node name="hack_label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 8)
+shape = SubResource("RectangleShape2D_uuqnp")
+
+[connection signal="timeout" from="resource_production_timer" to="." method="_on_resource_production_timer_timeout"]
+[connection signal="timeout" from="decay_death_timer" to="." method="_on_decay_death_timer_timeout"]

@@ -28,6 +28,12 @@
 
 6:00 - 6:40 dinner
 
-6:40 - get basic rail movement and detection going
+6:40 - 9:40 get basic rail movement and detection going
 
+## Friday
 
+10:15 -- 12:30 get rails working well
+
+12:30 - 3:30 break/walk/chores
+
+3:30 - 4 think about how points / scoring / logistics works
