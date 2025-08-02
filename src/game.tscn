@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bnofxuo3vbq5l"]
+[gd_scene load_steps=9 format=4 uid="uid://bnofxuo3vbq5l"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="5_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_wqvko"]
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="7_wqvko"]
+[ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="8_cdx1q"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_bs6l1")
@@ -16,7 +17,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("1_7uq6d")
 metadata/_edit_lock_ = true
 
-[node name="rail_grid" type="Node" parent="."]
+[node name="rail_grid" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_xq6wo")
 
@@ -146,3 +147,10 @@ metadata/_edit_lock_ = true
 
 [node name="ProducerStation" parent="." instance=ExtResource("7_wqvko")]
 position = Vector2(64, 0)
+
+[node name="highlight_marker" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-8, 8)
+sprite_frames = ExtResource("8_cdx1q")
+autoplay = "default"
+frame_progress = 0.810345

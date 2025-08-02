@@ -45,14 +45,15 @@ UI
 	* [x] Make train stop when it goes to a station
 	* [x] Add sound for when a train picks up a load [30 minutes]
 	* [x] Make train picking up load visually distinctive [2 hours hour]
-	* Make Wagon Pixel Art
-	* Animate said timer [30 minutes]
-	* If producer sits idle with a resource, count DOWN [15 minutes]
-		* Add a ticking clock sound when a producer is about to run out [15 minutes]
-* Make going a train to a trainyard drops off train load [1 hour]
-	* Add sound for when a train drops off a load [15 minutes]
-* Make clicking on a junction rotate it [10 minutes]
-	* Play a sound [5 minutes]
+	* [x] Make Wagon Pixel Art
+	* [x] If producer sits idle with a resource, count DOWN [15 minutes]
+		* [x] Add a ticking clock sound when a producer is about to run out [15 minutes]
+	* Animate said timer (both ways) [30 minutes]
+* [x] Make going a train to a trainyard drops off train load [1 hour]
+	* Animate trian dropping off train load [1 hour]
+	* [x] Add sound for when a train drops off a load [15 minutes]
+* [x] Make clicking on a junction rotate it [10 minutes]
+	* [x] Play a sound [5 minutes]
 * Separate rotation junctions from X junctions [20 minutes]
 * Make clicking on a tile pull up the build menu [1.5 hours]
 	* Highlight selectable tile with mouse [10 minutes]
@@ -64,7 +65,7 @@ UI
 		* Add sound for building a track [5 minutes]
 * Add camera movement, zoom, pan [30 minutes]
 * Add a UI to the bottom left showing current stored improvements [10 minutes]
-* Add tile improvement selector [1 hour]
+* Add tile improvement selector [3 hours]
 	* Every 60 seconds
 		* Generate a new train station
 			* Find space to put it into world
@@ -83,7 +84,7 @@ UI
 * Add defeat logic and screen [30 minutes]
 	* When a defeat happens, slowly prompt user with their high score [10 minutes]
 	* Add a button to replay [5 minutes]
-	* Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
+	* [x] Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
 
 
 BONUSES

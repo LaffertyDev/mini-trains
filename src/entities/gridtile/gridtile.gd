@@ -18,6 +18,10 @@ var vertical = load('res://src/entities/gridtile/rail_vertical.png')
 func _ready():
 	add_to_group("grid_tiles")
 	set_image()
+	
+func rotate_tile():
+	self.junction_type = (self.junction_type + 1) % 6
+	GlobalAudio.play_sound_rotate_junction()
 
 func set_image():
 	%junction_sprite.hide()

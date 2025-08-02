@@ -28,7 +28,6 @@ grid_type = 1
 [node name="resource_production_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 5.0
 one_shot = true
 autostart = true
 

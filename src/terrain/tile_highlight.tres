@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dydwlxhmga7ak"]
+
+[ext_resource type="Texture2D" uid="uid://bqjh7ean836aw" path="res://src/terrain/tile_highlight.png" id="1_i3rlg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yecxc"]
+atlas = ExtResource("1_i3rlg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1g56"]
+atlas = ExtResource("1_i3rlg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c7f4"]
+atlas = ExtResource("1_i3rlg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ummo"]
+atlas = ExtResource("1_i3rlg")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yecxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1g56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c7f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ummo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
