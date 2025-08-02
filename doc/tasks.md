@@ -56,7 +56,7 @@ UI
 	* [x] Play a sound [5 minutes]
 * [x] Separate rotation junctions from X junctions [20 minutes]
 * Make clicking on a tile pull up the build menu [1.5 hours]
-	* Highlight selectable tile with mouse [10 minutes]
+	* [x] Highlight selectable tile with mouse [10 minutes]
 	* Highlight selected tile [10 minutes]
 		* Add sound for clicking on a tile [5 minutes]
 	* Add system for keeping track of current tiles [10 minutes]
