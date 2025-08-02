@@ -64,9 +64,9 @@ UI
 	* [x] Make system work with build tile system
 * [x] Add sound for building a track [5 minutes]
 * [x] Add support for removing a track
-* Add defeat logic and screen [30 minutes]
-	* When a defeat happens, slowly prompt user with their high score [10 minutes]
-	* Add a button to replay [5 minutes]
+* [x] Add defeat logic and screen [30 minutes]
+	* [x] When a defeat happens, slowly prompt user with their high score [10 minutes]
+	* [x] Add a button to replay [5 minutes]
 	* [x] Add a sound when defeat happens appropriately to what caused the defeat [5 minutes]
 * Add tile improvement selector [3 hours]
 	* Every 60 seconds

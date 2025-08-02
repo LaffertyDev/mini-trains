@@ -46,6 +46,7 @@ func _on_track_engine_enter_station(station: Station) -> void:
 		%stop_timer.start()
 		self.holding_cargo = false
 		%TrackEngine.stop()
+		PlayerData.stat_loads_completed += 1
 		for w in wagons_following:
 			w.get_parent().call_deferred("remove_child", w)
 			w.call_deferred("queue_free")

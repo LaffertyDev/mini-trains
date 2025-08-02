@@ -21,20 +21,20 @@ var player_resources = {
 }
 signal option_was_built(option: Constants.BuildOptions)
 
-func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void:
+func setup_build_options(for_tile_type: Constants.GridType) -> void:
 	var options = []
 	match for_tile_type:
 		Constants.GridType.EMPTY:
-			if player_data.tracks_horizontal > 0:
+			if PlayerData.current_tracks_horizontal > 0:
 				options.append(Constants.BuildOptions.RAIL_HORIZONTAL)
-			if player_data.tracks_vertical > 0:
+			if PlayerData.current_tracks_vertical > 0:
 				options.append(Constants.BuildOptions.RAIL_VERTICAL)
-			if player_data.tracks_junctions_90 > 0:
+			if PlayerData.current_tracks_junctions_90 > 0:
 				options.append(Constants.BuildOptions.RAIL_JUNCTION_90)
-			if player_data.tracks_junctions_x > 0:
+			if PlayerData.current_tracks_junctions_x > 0:
 				options.append(Constants.BuildOptions.RAIL_JUNCTION_X)
 		_:
-			if player_data.trains > 0:
+			if PlayerData.current_trains > 0:
 				options.append(Constants.BuildOptions.TRAIN)
 			options.append(Constants.BuildOptions.RECYCLE)
 	
@@ -42,7 +42,7 @@ func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void
 		c.queue_free()
 		remove_child(c)
 	
-	var radius = 24
+	var radius = 20
 	var center = Vector2(8, 8)
 	var button_size: Vector2 = Vector2(20, 20)
 	
@@ -75,7 +75,7 @@ func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void
 		add_child(area)
 		area.input_event.connect(_handle_pressed.bind(options[i]))
 
-func _handle_pressed(viewport: Node, event: InputEvent, shape_idx: int, build_option: Constants.BuildOptions):	
+func _handle_pressed(_viewport: Node, event: InputEvent, _shape_idx: int, build_option: Constants.BuildOptions):	
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT:

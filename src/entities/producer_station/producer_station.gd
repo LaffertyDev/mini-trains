@@ -35,3 +35,4 @@ func update_state():
 func _on_decay_death_timer_timeout() -> void:
 	GlobalAudio.play_sound_defeat()
 	GlobalAudio.cancel_sound_ticking_clock_doom()
+	get_tree().current_scene.on_defeat()

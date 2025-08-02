@@ -130,6 +130,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("8_uktfx")]
 unique_name_in_owner = true

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4puqk38lb3q"]
+
+[ext_resource type="Script" uid="uid://b0upuqrw83e63" path="res://src/player_data.gd" id="1_2yxqa"]
+
+[node name="PlayerData" type="Node"]
+script = ExtResource("1_2yxqa")
+
+[node name="game_run_timer" type="Timer" parent="."]
