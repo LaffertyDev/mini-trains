@@ -11,22 +11,31 @@ var options_to_sprite = {
 	Constants.BuildOptions.RAIL_JUNCTION_90: preload("res://src/ui/build_menu/rail_junction_90_base.png"),
 }
 
+
+var player_resources = {
+	"tracks_horizontal": 0,
+	"tracks_vertical": 0,
+	"tracks_junctions_90": 0,
+	"tracks_junctions_x": 0,
+	"trains": 0
+}
 signal option_was_built(option: Constants.BuildOptions)
 
-func setup_build_options(for_tile_type: Constants.GridType) -> void:
-	var options
+func setup_build_options(for_tile_type: Constants.GridType, player_data) -> void:
+	var options = []
 	match for_tile_type:
 		Constants.GridType.EMPTY:
-			options = [
-				Constants.BuildOptions.RAIL_VERTICAL,
-				Constants.BuildOptions.RAIL_HORIZONTAL,
-				Constants.BuildOptions.RAIL_JUNCTION_X,
-				Constants.BuildOptions.RAIL_JUNCTION_90,
-			]
+			if player_data.tracks_horizontal > 0:
+				options.append(Constants.BuildOptions.RAIL_HORIZONTAL)
+			if player_data.tracks_vertical > 0:
+				options.append(Constants.BuildOptions.RAIL_VERTICAL)
+			if player_data.tracks_junctions_90 > 0:
+				options.append(Constants.BuildOptions.RAIL_JUNCTION_90)
+			if player_data.tracks_junctions_x > 0:
+				options.append(Constants.BuildOptions.RAIL_JUNCTION_X)
 		_:
-			options = [
-				Constants.BuildOptions.TRAIN,
-			]
+			if player_data.trains > 0:
+				options.append(Constants.BuildOptions.TRAIN)
 	
 	for c in get_children():
 		c.queue_free()
@@ -68,5 +77,4 @@ func _handle_pressed(viewport: Node, event: InputEvent, shape_idx: int, build_op
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			print("Clicked")
 			option_was_built.emit(build_option)

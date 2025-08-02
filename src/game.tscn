@@ -164,6 +164,7 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("8_uktfx")]
+unique_name_in_owner = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1

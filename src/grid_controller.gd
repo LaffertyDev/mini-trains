@@ -16,9 +16,8 @@ func select_transition_state_to_selected() -> void:
 	cursor_current_state = CursorState.Selected
 	var build_menu: BuildMenuController = get_parent().get_build_menu()
 	build_menu.position = grid_to_world_top_left(selected_tile)
-	build_menu.setup_build_options(get_tile_at_pos(selected_tile))
+	build_menu.setup_build_options(get_tile_at_pos(selected_tile), get_tree().current_scene.get_player_data())
 	build_menu.show()
-	
 	
 func select_transition_state_to_hovering(tile: Vector2) -> void:
 	selected_tile = tile
@@ -156,3 +155,4 @@ func _on_build_menu_option_was_built(option: Constants.BuildOptions) -> void:
 		Constants.BuildOptions.RAIL_JUNCTION_90:
 			set_grid_at_pos(selected_tile, Constants.GridType.RAIL_JUNCTION_90, Constants.JunctionType.EAST_SOUTH)
 	select_transition_state_to_none()
+	get_tree().current_scene.handle_build(option)

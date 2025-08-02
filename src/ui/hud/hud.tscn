@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://fxbedv8vi18g"]
+[gd_scene load_steps=8 format=3 uid="uid://fxbedv8vi18g"]
 
+[ext_resource type="Script" uid="uid://osvshfv34pdg" path="res://src/ui/hud/hud.gd" id="1_4dm8p"]
 [ext_resource type="Texture2D" uid="uid://cfs42cr3pra5u" path="res://src/ui/ui_build_button_border.png" id="1_cvkdw"]
 [ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="1_jobw0"]
 [ext_resource type="Texture2D" uid="uid://dmegi2foiejs" path="res://src/entities/gridtile/rail_horizontal.png" id="3_udh2q"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("1_4dm8p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -42,7 +44,8 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VerticalRails"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VerticalRails/VBoxContainer"]
+[node name="vrail_label" type="Label" parent="MarginContainer/HBoxContainer/VerticalRails/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "7"
 horizontal_alignment = 1
@@ -67,7 +70,8 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HorizontalRails"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/HorizontalRails/VBoxContainer"]
+[node name="hrail_label" type="Label" parent="MarginContainer/HBoxContainer/HorizontalRails/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "7"
 horizontal_alignment = 1
@@ -92,7 +96,8 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Trains"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Trains/VBoxContainer"]
+[node name="train_label" type="Label" parent="MarginContainer/HBoxContainer/Trains/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "7"
 horizontal_alignment = 1
@@ -117,7 +122,8 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Junctions90"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Junctions90/VBoxContainer"]
+[node name="junction90_label" type="Label" parent="MarginContainer/HBoxContainer/Junctions90/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "7"
 horizontal_alignment = 1
@@ -142,7 +148,8 @@ theme_override_constants/margin_bottom = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/JunctionsX"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/JunctionsX/VBoxContainer"]
+[node name="junctionX_label" type="Label" parent="MarginContainer/HBoxContainer/JunctionsX/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "7"
 horizontal_alignment = 1
