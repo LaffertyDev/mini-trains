@@ -10,8 +10,7 @@ enum CursorState { None, Hovering, Selected }
 var cursor_current_state = CursorState.None
 var selected_tile = null
 
-func select_transition_state_to_selected(tile: Vector2) -> void:
-	selected_tile = tile
+func select_transition_state_to_selected() -> void:
 	cursor_current_state = CursorState.Selected
 	
 func select_transition_state_to_hovering(tile: Vector2) -> void:
@@ -32,28 +31,30 @@ func select_state_transition_to(tile_state_switch_to: CursorState) -> void:
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			var pos = world_to_grid(get_global_mouse_position())
-			var tile_at_position = get_tile_at_pos(pos)
-			match tile_at_position:
-				Constants.GridType.EMPTY:
-					pass
-					#cursor_current_state = CursorState.Selected
-					#set_grid_at_pos(pos, Constants.GridType.RAIL_HORIZONTAL)
-				Constants.GridType.BLOCKED_INVISIBLE:
-					# do nothing
-					pass
-				Constants.GridType.RAIL_JUNCTION_X:
-					if cursor_current_state == CursorState.Hovering:
-						var tile = get_real_tile_at_pos(pos)
-						tile.rotate_tile()
-				Constants.GridType.RAIL_JUNCTION_90:
-					if cursor_current_state == CursorState.Hovering:
-						var tile = get_real_tile_at_pos(pos)
-						tile.rotate_tile()
+			match cursor_current_state:
+				CursorState.Hovering:
+					# select current selectable tile
+					var pos = world_to_grid(get_global_mouse_position())
+					var tile_at_position = get_tile_at_pos(pos)
+					match tile_at_position:
+						Constants.GridType.EMPTY:
+							select_transition_state_to_selected()
+							pass
+						Constants.GridType.BLOCKED_INVISIBLE:
+							# do nothing
+							pass
+						Constants.GridType.RAIL_JUNCTION_X:
+							if cursor_current_state == CursorState.Hovering:
+								var tile = get_real_tile_at_pos(pos)
+								tile.rotate_tile()
+						Constants.GridType.RAIL_JUNCTION_90:
+							if cursor_current_state == CursorState.Hovering:
+								var tile = get_real_tile_at_pos(pos)
+								tile.rotate_tile()
 	
 		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			var pos = world_to_grid(get_global_mouse_position())
-			print(get_tile_at_pos(pos))
+			if cursor_current_state == CursorState.Selected:
+				select_transition_state_to_none()
 	
 func _process(_delta: float) -> void:
 	var tile_pos = world_to_grid(get_global_mouse_position())

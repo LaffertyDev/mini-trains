@@ -42,3 +42,11 @@
 
 6 - 7 dinner
 7 - 9 get wagon following working
+
+9 - 10:30 get some cursor selection in and improve some various things
+
+## Saturday
+
+11am start
+
+11 - 11:30 make state machine for basic grid selection system, add some more tile types
