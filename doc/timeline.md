@@ -72,4 +72,5 @@
 
 10 - 12:30 pm -- various audio, various improvements, various things... I'm tired
 
+12:30 - 12:45 pm add tutorial
 

@@ -107,11 +107,16 @@ WATCHING EMILY PLAY NOTES
 * OR
 * Trains do not die, they just stop until they can go again
 
+## MORNING THOUGHTS
+
+* You have an upper amount of trains, losing one lets you spawn another
+* Slowly zoom out the camera for increased visual appeal
+
 
 UI BONUSES
 
 * Improve Main Menu
-* Tutorial
+* [x] Tutorial
 
 ANIMATION BONUSES
 * Add smoke animation to train
