@@ -32,12 +32,12 @@ stream = ExtResource("3_6703h")
 [node name="sound_train_horn" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_ie81t")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="sound_train_chunkchunk" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_i8m2u")
-volume_db = -30.0
+volume_db = -25.0
 pitch_scale = 0.8
 parameters/looping = true
 
