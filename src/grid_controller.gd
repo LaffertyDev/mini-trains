@@ -6,7 +6,6 @@ var rail_scene = preload("res://src/entities/gridtile/gridtile.tscn")
 var build_menu_scene = preload("res://src/ui/build_menu/build_menu.tscn")
 var producer_station_scene = preload("res://src/entities/producer_station/producer_station.tscn")
 
-	
 func remove_grid_tile_at_position(pos: Vector2) -> void:
 	var real_grid = get_real_tile_at_pos(pos)
 	real_grid.get_parent().call_deferred("remove_child", real_grid)
@@ -18,15 +17,27 @@ func _process(_delta: float) -> void:
 	var gui_control_mode: Constants.GuiControlMode = get_tree().current_scene.get_gui().get_hud_control_mode()
 	match gui_control_mode:
 		Constants.GuiControlMode.NONE:
+			var ghost = get_parent().get_node("ghost")
+			ghost.hide()
 			pass
 		Constants.GuiControlMode.TRACK:
+			if tile == Constants.GridType.EMPTY:
+				# show a ghost tile
+				var ghost = get_parent().get_node("ghost")
+				ghost.position = grid_to_world_top_left(world_to_grid(get_global_mouse_position())) + Vector2(8, 8)
+				ghost.show()
+			else:
+				var ghost = get_parent().get_node("ghost")
+				ghost.position = grid_to_world_top_left(world_to_grid(get_global_mouse_position())) + Vector2(8, 8)
+				ghost.hide()
+				
 			if Input.is_action_pressed("primary_action"):
 				if tile == Constants.GridType.EMPTY and PlayerData.current_tracks > 0:
 					set_grid_at_pos(tile_pos, Constants.GridType.TRACK)
 					PlayerData.handle_build()
 					GlobalAudio.play_sound_place_tile()
 					get_tree().call_group("grid_tiles", "update_permitted_rotations")
-			if Input.is_action_pressed("secondary_action"):
+			elif Input.is_action_pressed("secondary_action"):
 				if tile == Constants.GridType.TRACK:
 					PlayerData.handle_recycle()
 					remove_grid_tile_at_position(tile_pos)
