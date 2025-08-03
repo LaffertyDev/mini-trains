@@ -1,23 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://br5dwwii7dtjn"]
+[gd_scene load_steps=4 format=3 uid="uid://br5dwwii7dtjn"]
 
 [ext_resource type="Script" uid="uid://b6dj15il4vf2v" path="res://src/entities/gridtile/gridtile.gd" id="1_jho47"]
-[ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="2_8i1bd"]
 [ext_resource type="SpriteFrames" uid="uid://cd4mrsx7a3ks5" path="res://src/entities/gridtile/rail_junction.tres" id="3_8i1bd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jho47"]
 size = Vector2(3, 3)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i1bd"]
-size = Vector2(1, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxte2"]
-size = Vector2(16, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xybqe"]
-size = Vector2(1, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qaij"]
-size = Vector2(16, 1)
 
 [node name="gridtyle" type="Area2D"]
 collision_layer = 32
@@ -28,50 +15,7 @@ script = ExtResource("1_jho47")
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_jho47")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(8, 8)
-texture = ExtResource("2_8i1bd")
-
-[node name="junction_sprite" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
 position = Vector2(8, 8)
 sprite_frames = ExtResource("3_8i1bd")
-
-[node name="left" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
-position = Vector2(0.5, 8)
-shape = SubResource("RectangleShape2D_8i1bd")
-
-[node name="bottom" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="bottom"]
-position = Vector2(8, 15.5)
-shape = SubResource("RectangleShape2D_bxte2")
-
-[node name="right" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="right"]
-position = Vector2(15.5, 8)
-shape = SubResource("RectangleShape2D_xybqe")
-
-[node name="top" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="top"]
-position = Vector2(8, 0.5)
-shape = SubResource("RectangleShape2D_3qaij")

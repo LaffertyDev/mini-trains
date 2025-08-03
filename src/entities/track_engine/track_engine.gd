@@ -77,43 +77,49 @@ func _on_center_area_entered(area: Area2D) -> void:
 	var tile := area as GridTile
 	if tile:
 		PlayerData.stat_trains_distance_moved += 1
-		if area.grid_type == Constants.GridType.RAIL_JUNCTION_X or area.grid_type == Constants.GridType.RAIL_JUNCTION_90:
+		if tile.grid_type == Constants.GridType.TRACK:
 			var grid: GridController = get_tree().current_scene.get_grid()
 			var grid_position = grid.world_to_grid(area.global_position)
 			var train_position_in_grid = grid.grid_to_world_top_left(grid_position)
 			get_parent().position = train_position_in_grid
 			
-			match area.junction_type:
-				Constants.JunctionType.HORIZONTAL:
+			match tile.current_rotation:
+				Constants.RailType.HORIZONTAL:
 					# we do not turn
 					pass
-				Constants.JunctionType.VERTICAL:
+				Constants.RailType.VERTICAL:
 					# we do not turn
 					pass
-				Constants.JunctionType.EAST_SOUTH:
+				Constants.RailType.EAST_SOUTH:
 					if movement_direction.x != 0:
 						movement_direction = Vector2(0, 1)
 					else:
 						movement_direction = Vector2(1, 0)
 					emit_direction()
-				Constants.JunctionType.EAST_NORTH:
+				Constants.RailType.EAST_NORTH:
 					if movement_direction.x != 0:
 						movement_direction = Vector2(0, -1)
 					else:
 						movement_direction = Vector2(1, 0)
 					emit_direction()
-				Constants.JunctionType.WEST_SOUTH:
+				Constants.RailType.WEST_SOUTH:
 					if movement_direction.x != 0:
 						movement_direction = Vector2(0, 1)
 					else:
 						movement_direction = Vector2(-1, 0)
 					emit_direction()
-				Constants.JunctionType.WEST_NORTH:
+				Constants.RailType.WEST_NORTH:
 					if movement_direction.x != 0:
 						movement_direction = Vector2(0, -1)
 					else:
 						movement_direction = Vector2(-1, 0)
 					emit_direction()
+				Constants.RailType.CROSS_HORIZONTAL:
+					# do not turn
+					pass
+				Constants.RailType.CROSS_VERTICAL:
+					# do not turn
+					pass
 
 func _on_center_area_exited(area: Area2D) -> void:
 	var grid: GridController = get_tree().current_scene.get_grid()

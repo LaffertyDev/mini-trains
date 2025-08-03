@@ -1,4 +1,5 @@
 extends Node2D
+class_name GameController
 
 var rail_grid_controller
 var random = RandomNumberGenerator.new()
@@ -9,35 +10,19 @@ func _ready():
 	PlayerData.reset_game()
 	%Hud.sync_gui()
 	PlayerData.player_data_changed.connect(_on_player_data_change)
+	get_tree().call_group("grid_tiles", "update_permitted_rotations")
 
 
 func get_grid() -> GridController:
 	return %rail_grid
 
-func get_build_menu() -> BuildMenuController:
-	return %BuildMenu
-
+func get_gui() -> GuiController:
+	return %Hud
 
 enum MouseClickState { None, Pressed }
 var current_mouse_click_state = MouseClickState.None
 var current_mouse_pressed_at = null
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				current_mouse_click_state = MouseClickState.Pressed
-				current_mouse_pressed_at = get_global_mouse_position()
-			else:
-				if current_mouse_click_state == MouseClickState.Pressed:
-					var distance = get_global_mouse_position() - current_mouse_pressed_at
-					if abs(distance.length()) < 5:
-						rail_grid_controller.handle_left_click()
-				current_mouse_click_state = MouseClickState.None
-			
-		if event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			rail_grid_controller.handle_right_click()
-	
 func _on_player_data_change():
 	%Hud.sync_gui()
 	
@@ -68,10 +53,7 @@ func _on_levelup_timer_timeout() -> void:
 		if is_grid_valid(grid_position):
 			rail_grid_controller.setup_producer_at_pos(grid_position)
 			PlayerData.current_trains += 1
-			PlayerData.current_tracks_horizontal += 10
-			PlayerData.current_tracks_vertical += 10
-			PlayerData.current_tracks_junctions_90 += 2
-			PlayerData.current_tracks_junctions_x += 2
+			PlayerData.current_tracks += 10
 			return
 		distance_modifier += 1
 

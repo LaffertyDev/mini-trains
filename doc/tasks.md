@@ -93,7 +93,6 @@ FIRST MOMENTS IMPROVEMENTS
 
 * also maybe make the starting loop tighter in order to get first random placement faster
 
-
 BONUS - PICK THREE
 
 * Add tile improvement selector [3 hours]
@@ -155,3 +154,4 @@ BUG TRACKER
 
 * [x] Trains do not die anymore when they enter some rotations
 * [x] If a train dies while holding a wagon, the wagon will not disappear
+* You can delete the tracks underneath the production stations

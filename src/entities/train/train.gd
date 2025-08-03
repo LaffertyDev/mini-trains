@@ -10,18 +10,33 @@ var wagon_res = preload("res://src/entities/wagon/wagon.tscn")
 func _ready():
 	var grid: GridController = get_tree().current_scene.get_grid()
 	var grid_position = grid.world_to_grid(self.global_position)
-	var grid_tile = grid.get_tile_at_pos(grid_position)
-	var starting_direction
-	match grid_tile:
-		Constants.GridType.RAIL_HORIZONTAL:
-			starting_direction = Vector2(-1, 0)
-		Constants.GridType.RAIL_VERTICAL:
-			starting_direction = Vector2(0, 1)
-		_:
-			print("ERROR ERROR ERROR ERROR")
-	self.position = grid.grid_to_world_top_left(grid_position)
-	%TrackEngine.set_direction(starting_direction)
-	%TrackEngine.move()
+	var grid_tile = grid.get_real_tile_at_pos(grid_position)
+	if grid_tile == null:
+		print("ERROR ERROR ERROR")
+	else:
+		var starting_direction
+		match grid_tile.current_rotation:
+			0:
+				starting_direction = Vector2(-1, 0)
+			1:
+				starting_direction = Vector2(0, 1)
+			2:
+				starting_direction = Vector2(1, 0)
+			3:
+				starting_direction = Vector2(-1, 0)
+			4:
+				starting_direction = Vector2(-1, 0)
+			5:
+				starting_direction = Vector2(1, 0)
+			6:
+				starting_direction = Vector2(-1, 0)
+			7:
+				starting_direction = Vector2(0, 1)
+			_:
+				print("ERROR ERROR ERROR")
+		self.position = grid.grid_to_world_top_left(grid_position)
+		%TrackEngine.set_direction(starting_direction)
+		%TrackEngine.move()
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	get_parent().call_deferred("remove_child", self)

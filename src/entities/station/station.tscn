@@ -26,28 +26,34 @@ position = Vector2(16, 0)
 grid_type = 1
 
 [node name="gridtyle3" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(16, -16)
-grid_type = 5
+grid_type = 2
 
 [node name="gridtyle4" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(0, -16)
-grid_type = 5
+grid_type = 2
 
 [node name="gridtyle5" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(0, -32)
-grid_type = 5
+grid_type = 2
 
 [node name="gridtyle6" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(16, -32)
-grid_type = 5
+grid_type = 2
 
 [node name="gridtyle7" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(16, -48)
-grid_type = 5
+grid_type = 2
 
 [node name="gridtyle8" parent="." instance=ExtResource("2_agjdm")]
+visible = false
 position = Vector2(0, -48)
-grid_type = 5
+grid_type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8.5, 8)

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cd4mrsx7a3ks5"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://cd4mrsx7a3ks5"]
 
 [ext_resource type="Texture2D" uid="uid://bbnw161838l4w" path="res://src/entities/gridtile/rail_junction.png" id="1_3r4h2"]
 
@@ -26,6 +26,14 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("1_3r4h2")
 region = Rect2(80, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r4h2"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjikm"]
+atlas = ExtResource("1_3r4h2")
+region = Rect2(112, 0, 16, 16)
+
 [resource]
 animations = [{
 "frames": [{
@@ -46,6 +54,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oihrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r4h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjikm")
 }],
 "loop": false,
 "name": &"default",

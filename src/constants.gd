@@ -1,29 +1,24 @@
 class_name Constants
 enum GridType {
 	EMPTY,
-	RAIL_HORIZONTAL,
-	RAIL_VERTICAL,
-	RAIL_JUNCTION_X,
-	RAIL_JUNCTION_90,
+	TRACK,
 	BLOCKED_INVISIBLE,
 }
 
-enum JunctionType { 
-	EAST_SOUTH = 0,
-	WEST_SOUTH = 1,
-	WEST_NORTH = 2,
-	EAST_NORTH = 3,
-	HORIZONTAL = 4,
-	VERTICAL = 5
+enum RailType { 
+	HORIZONTAL = 0,
+	VERTICAL = 1,
+	EAST_SOUTH = 2,
+	WEST_SOUTH = 3,
+	WEST_NORTH = 4,
+	EAST_NORTH = 5,
+	CROSS_HORIZONTAL = 6,
+	CROSS_VERTICAL = 7
 }
 
-enum BuildOptions {
-	RECYCLE,
-	TRAIN,
-	RAIL_VERTICAL,
-	RAIL_HORIZONTAL,
-	RAIL_JUNCTION_X,
-	RAIL_JUNCTION_90
+enum GuiControlMode {
+	NONE,
+	TRACK
 }
 
 enum Direction {left, top, bottom, right}

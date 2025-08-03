@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bnofxuo3vbq5l"]
+[gd_scene load_steps=10 format=4 uid="uid://bnofxuo3vbq5l"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="7_wqvko"]
 [ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="8_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://fxbedv8vi18g" path="res://src/ui/hud/hud.tscn" id="8_uktfx"]
-[ext_resource type="Script" uid="uid://cx7f0epmavni2" path="res://src/touch_camera_2d.gd" id="8_y2hwx"]
-[ext_resource type="PackedScene" uid="uid://dwq6a8lc8evh0" path="res://src/ui/build_menu/build_menu.tscn" id="9_4bcji"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_bs6l1")
@@ -33,8 +31,7 @@ script = ExtResource("2_xq6wo")
 
 [node name="gridtyle" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 0)
-grid_type = 4
-junction_type = 1
+grid_type = 1
 
 [node name="gridtyle2" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-32, 0)
@@ -54,27 +51,27 @@ grid_type = 1
 
 [node name="gridtyle8" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 16)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle10" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 32)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle11" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 48)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle15" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 16)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle16" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 32)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle27" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 48)
-grid_type = 2
+grid_type = 1
 
 [node name="gridtyle18" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-48, 64)
@@ -102,33 +99,29 @@ grid_type = 1
 
 [node name="gridtyle14" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 64)
-grid_type = 4
-junction_type = 2
+grid_type = 1
 
 [node name="gridtyle7" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 0)
-grid_type = 4
-junction_type = 0
+grid_type = 1
+
+[node name="gridtyle12" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(-96, 16)
+grid_type = 1
+
+[node name="gridtyle13" parent="rail_grid" instance=ExtResource("5_pk08u")]
+position = Vector2(-96, 0)
+grid_type = 1
 
 [node name="gridtyle9" parent="rail_grid" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 64)
-grid_type = 4
-junction_type = 3
+grid_type = 1
 
 [node name="ProducerStation" parent="rail_grid" instance=ExtResource("7_wqvko")]
 position = Vector2(0, 64)
 
 [node name="train" parent="." instance=ExtResource("6_wqvko")]
 position = Vector2(-16, 0)
-
-[node name="TouchCamera2D" type="Camera2D" parent="."]
-script = ExtResource("8_y2hwx")
-return_speed = 0.0
-pan_sensitivity = 0.6
-fling_action = false
-zoom_sensitivity = 1
-zoom_increment = Vector2(0.005, 0.005)
-metadata/_custom_type_script = "uid://cx7f0epmavni2"
 
 [node name="highlight_marker" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -137,10 +130,6 @@ position = Vector2(-8, 8)
 sprite_frames = ExtResource("8_cdx1q")
 autoplay = "default"
 frame_progress = 0.810345
-
-[node name="BuildMenu" parent="." instance=ExtResource("9_4bcji")]
-unique_name_in_owner = true
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -151,5 +140,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="timeout" from="levelup_timer" to="." method="_on_levelup_timer_timeout"]
-[connection signal="option_was_built" from="BuildMenu" to="rail_grid" method="_on_build_menu_option_was_built"]
