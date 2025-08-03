@@ -11,4 +11,4 @@ func _ready() -> void:
 	GlobalAudio.cancel_sound_doom_completely() # just in case
 
 func _on_play_again_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/game.tscn")
+	get_tree().change_scene_to_file("res://src/levels/main_level.tscn")
