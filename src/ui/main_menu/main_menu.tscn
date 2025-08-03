@@ -27,8 +27,67 @@ alignment = 1
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Welcome!"
+text = "Mini Trains"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your trains will follow rails"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your trains bring box cars to your station"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Box cars are produced in houses"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Left click to build rails"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Right Click to reclaim rails"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Left Click on a Junction to Rotate it"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Left click on a rail to place a Train"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Box cars expire	"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "An expired box car is game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your score based on travel distance, loads, and tracks placed"
 vertical_alignment = 1
 
 [node name="button_start_game" type="Button" parent="HBoxContainer/VBoxContainer"]

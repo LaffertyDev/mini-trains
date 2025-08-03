@@ -88,8 +88,9 @@ BUG TRACKER
 * [x] Trains do not collide with rotations anymore
 * [x] You cannot rotate tiles
 * [x] fix the clock ticking down
-* Trains "skip"
+* [x] Trains "skip"
 * Sometimes wagons really glitch the fuck out
+	* confirmed this still happens
 
 WATCHING EMILY PLAY NOTES
 

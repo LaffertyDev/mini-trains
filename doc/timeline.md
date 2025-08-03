@@ -69,3 +69,7 @@
 7:23 - 9:40 pm - make placing tracks not suck ass
 
 9:40 - 10:00 pm -- add ghost
+
+10 - 12:30 pm -- various audio, various improvements, various things... I'm tired
+
+
