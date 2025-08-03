@@ -26,6 +26,10 @@ func _ready():
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	get_parent().call_deferred("remove_child", self)
 	self.call_deferred("queue_free")
+	for w in wagons_following:
+		w.get_parent().call_deferred("remove_child", w)
+		w.call_deferred("queue_free")
+	wagons_following = []
 
 func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
 	match direction:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjbwlcir7j1fs"]
+[gd_scene load_steps=8 format=3 uid="uid://cjbwlcir7j1fs"]
 
 [ext_resource type="Script" uid="uid://cv86hamfxxoja" path="res://src/entities/track_engine/track_engine.gd" id="1_gfmpa"]
 
@@ -17,6 +17,9 @@ size = Vector2(2, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2befa"]
 size = Vector2(2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n4ho"]
+size = Vector2(8, 8)
 
 [node name="TrackEngine" type="Node2D"]
 script = ExtResource("1_gfmpa")
@@ -61,6 +64,14 @@ collision_mask = 128
 position = Vector2(7, 4)
 shape = SubResource("RectangleShape2D_2befa")
 
+[node name="total_area" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="total_area"]
+position = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_0n4ho")
+
 [connection signal="area_entered" from="center" to="." method="_on_center_area_entered"]
 [connection signal="area_exited" from="center" to="." method="_on_center_area_exited"]
 [connection signal="area_entered" from="left" to="." method="_on_left_area_entered"]
@@ -71,3 +82,4 @@ shape = SubResource("RectangleShape2D_2befa")
 [connection signal="area_exited" from="bottom" to="." method="_on_bottom_area_exited"]
 [connection signal="area_entered" from="top" to="." method="_on_top_area_entered"]
 [connection signal="area_exited" from="top" to="." method="_on_top_area_exited"]
+[connection signal="area_entered" from="total_area" to="." method="_on_total_area_area_entered"]

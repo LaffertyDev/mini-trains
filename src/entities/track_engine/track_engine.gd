@@ -121,3 +121,6 @@ func _on_center_area_exited(area: Area2D) -> void:
 	var next_grid_tile = grid.get_tile_at_pos(current_grid_position + movement_direction)
 	if next_grid_tile == Constants.GridType.EMPTY:
 		collide_with_terrain.emit(Constants.Direction.left) # TODO - MAKE DYNAMIC
+
+func _on_total_area_area_entered(_area: Area2D) -> void:
+	collide_with_terrain.emit(Constants.Direction.left) # TODO - MAKE DYNAMIC

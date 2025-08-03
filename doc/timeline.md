@@ -57,3 +57,13 @@
 	detour, because of godot bug https://github.com/godotengine/godot-proposals/issues/3613
 
 2:30 - 5:00 add scoring mechanism, add random station generation
+
+5 - 5:45 dinner and walk
+
+5:45 - 6:23 add camera from the internet, fix a few train bugs
+
+6:20 - 7:00 pixel art animations for producer station and wiring it up, fix a few bugs
+
+7 - 7:23 get it up on itch
+
+7:23 - ...

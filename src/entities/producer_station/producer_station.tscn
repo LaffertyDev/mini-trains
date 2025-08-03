@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://vlku18eqlx5i"]
 
 [ext_resource type="Script" uid="uid://debg5iw4r2qj2" path="res://src/entities/producer_station/producer_station.gd" id="1_lh65p"]
-[ext_resource type="Texture2D" uid="uid://drorjmoyn8use" path="res://src/entities/producer_station/producer_pickup.png" id="1_ua3dl"]
+[ext_resource type="SpriteFrames" uid="uid://kx64i8mxsk6b" path="res://src/entities/producer_station/producer_station.tres" id="2_uuqnp"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="3_uuqnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuqnp"]
@@ -12,9 +12,11 @@ collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_lh65p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="animated_sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(16, -16)
-texture = ExtResource("1_ua3dl")
+sprite_frames = ExtResource("2_uuqnp")
+animation = &"loading"
 
 [node name="gridtyle" parent="." instance=ExtResource("3_uuqnp")]
 visible = false
@@ -25,17 +27,15 @@ visible = false
 position = Vector2(16, 0)
 grid_type = 1
 
-[node name="resource_production_timer" type="Timer" parent="."]
+[node name="loaded_till_decay_starts" type="Timer" parent="."]
 unique_name_in_owner = true
-process_callback = 0
-wait_time = 15.0
+wait_time = 30.0
 one_shot = true
-autostart = true
 
 [node name="decay_death_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 60.0
+wait_time = 30.0
 one_shot = true
 
 [node name="hack_label" type="Label" parent="."]
@@ -64,5 +64,6 @@ grid_type = 5
 position = Vector2(16, -32)
 grid_type = 5
 
-[connection signal="timeout" from="resource_production_timer" to="." method="_on_resource_production_timer_timeout"]
+[connection signal="animation_finished" from="animated_sprite" to="." method="_on_animated_sprite_animation_finished"]
+[connection signal="timeout" from="loaded_till_decay_starts" to="." method="_on_loaded_till_decay_starts_timeout"]
 [connection signal="timeout" from="decay_death_timer" to="." method="_on_decay_death_timer_timeout"]

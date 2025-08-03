@@ -73,7 +73,29 @@ UI
 		* [x] Generate a new train station
 			* [x] Find space to put it into world
 			* [x] Place it
-* Make trains die if they go off rails
+* [x] Make trains die if they go off rails
+* [x] Animate production timer (both ways) [30 minutes]
+* [x] Add camera movement, zoom, pan [30 minutes]
+* [x] Add a tracker for how long the game has been running [10 minutes]
+* [x] Add a tracker for the amount of loads the player has shipped [10 minutes]
+* [x] Make trains colliding with trains destroy themselves
+
+* Improve the Game
+* Make placing tiles more enjoyable
+	tile placement should always be top-z
+	placing a tile will also trigger other tiles to activate which is wrong
+	fix the clock ticking down
+	fix mobile tapping does not interact with system
+		fix mobile zooming panning
+
+
+FIRST MOMENTS IMPROVEMENTS
+
+* also maybe make the starting loop tighter in order to get first random placement faster
+
+
+BONUS - PICK THREE
+
 * Add tile improvement selector [3 hours]
 		* Pull up a pick-three menu to load resources
 			* Train
@@ -84,11 +106,7 @@ UI
 			* Junction - Rotate
 	* Add a ticking clock sound when a levelup is about to happen [15 minutes]
 	* Build menu for selecting improvements [30 minutes]
-* Animate production timer (both ways) [30 minutes]
-* Add camera movement, zoom, pan [30 minutes]
-* Add a tracker for how long the game has been running [10 minutes]
-* Add a tracker for the amount of loads the player has shipped [10 minutes]
-
+* When trains die they should play a sound
 
 BONUSES
 * Pause Game
@@ -130,7 +148,10 @@ BONUSES
 * Tune starting resources, timers, level ups
 
 
+FRUSTRATIONS
+* building tracks is annoying.
 
 BUG TRACKER
 
-* Trains do not die anymore when they enter some rotations
+* [x] Trains do not die anymore when they enter some rotations
+* [x] If a train dies while holding a wagon, the wagon will not disappear
