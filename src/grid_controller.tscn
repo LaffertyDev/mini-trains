@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cywryjq0iv7lv"]
+[gd_scene load_steps=7 format=3 uid="uid://cywryjq0iv7lv"]
 
 [ext_resource type="Script" uid="uid://b6p7be63sci1p" path="res://src/grid_controller.gd" id="1_7iwir"]
 [ext_resource type="PackedScene" uid="uid://bxncjxvequh88" path="res://src/entities/station/station.tscn" id="2_rp7e2"]
 [ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="3_cmtxr"]
 [ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="4_l8u14"]
 [ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="5_r23l1"]
+[ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_l8u14"]
 
 [node name="GridController" type="Node2D"]
 script = ExtResource("1_7iwir")
@@ -32,3 +33,5 @@ modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
 top_level = true
 sprite_frames = ExtResource("5_r23l1")
 autoplay = "default"
+
+[node name="train" parent="." instance=ExtResource("6_l8u14")]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dgke14wded48i"]
+[gd_scene load_steps=6 format=4 uid="uid://dgke14wded48i"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_11df1"]
 [ext_resource type="PackedScene" uid="uid://cywryjq0iv7lv" path="res://src/grid_controller.tscn" id="2_k0jp4"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="3_1du40"]
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="4_tygi3"]
-[ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="5_twkqo"]
 [ext_resource type="PackedScene" uid="uid://cy177gnj0gxr6" path="res://src/game_engine.tscn" id="6_ywe2d"]
 
 [node name="game" type="Node2D"]
@@ -112,8 +111,5 @@ grid_type = 1
 [node name="ProducerStation" parent="grid_controller" instance=ExtResource("4_tygi3")]
 position = Vector2(0, 80)
 currently_produced = true
-
-[node name="train" parent="grid_controller" instance=ExtResource("5_twkqo")]
-position = Vector2(-16, 0)
 
 [node name="GameEngine" parent="." instance=ExtResource("6_ywe2d")]
