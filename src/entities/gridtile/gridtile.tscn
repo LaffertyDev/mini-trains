@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cd4mrsx7a3ks5" path="res://src/entities/gridtile/rail_junction.tres" id="3_8i1bd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jho47"]
-size = Vector2(3, 3)
+size = Vector2(0.5, 0.5)
 
 [node name="gridtyle" type="Area2D"]
 collision_layer = 32
@@ -12,10 +12,11 @@ collision_mask = 0
 script = ExtResource("1_jho47")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(7.5, 7.5)
 shape = SubResource("RectangleShape2D_jho47")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(8, 8)
 sprite_frames = ExtResource("3_8i1bd")
+metadata/_edit_lock_ = true

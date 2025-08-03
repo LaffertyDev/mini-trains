@@ -87,59 +87,32 @@ BUG TRACKER
 * [x] You can delete the tracks underneath the production stations
 * [x] Trains do not collide with rotations anymore
 * [x] You cannot rotate tiles
+* [x] fix the clock ticking down
+* Trains "skip"
+* Sometimes wagons really glitch the fuck out
 
 WATCHING EMILY PLAY NOTES
 
 * [x] how to pick tiles is non obvious
 * How to delete tiles in non obvious
-* timer starts too late for doom
-* game idles too long without spawning another thing
-* direction at the very beginning is zero and looks sad
-
-## JORDAN FEEDBACK:
-
-
-* also maybe make the starting loop tighter in order to get first random placement faster
-
-----
-
-## BUGS
-
-
-* fix the clock ticking down
+* [x] timer starts too late for doom
+* [x] game idles too long without spawning another thing
+* [x] direction at the very beginning is zero and looks sad
 
 ## BONUS IMPROVEMENTS
 
-BONUS - PICK THREE
-
-* Add tile improvement selector [3 hours]
-		* Pull up a pick-three menu to load resources
-			* Train
-				* Spawns at the root railyard, Idled
-			* Rail - horizontal
-			* Rail - vertical
-			* Junction - X
-			* Junction - Rotate
-	* Add a ticking clock sound when a levelup is about to happen [15 minutes]
-	* Build menu for selecting improvements [30 minutes]
 * When trains die they should play a sound
+	* and play an animation for derailment
+* OR
+* Trains do not die, they just stop until they can go again
 
-BONUSES
-* Pause Game
-	* Plays sound on pause
-	* Plays sound un unpause
-* Make trains idleable
-	* Tapping on a train will stop it
-		* Plays Sound
-	* Tapping on a stopped train will start it
-		* Plays sound
-* [x] Add a "recycle" button
-	* [x] Clicking it transforms build menu mode to be recycle
-	* [x] Destroying tiles lets you place them again
-	* Add ability to recycle junction tiles
+
+UI BONUSES
+
+* Improve Main Menu
+* Tutorial
 
 ANIMATION BONUSES
-* Add train derailment animation and effect
 * Add smoke animation to train
 * Improve train movement animation
 * Add birds or critters
@@ -154,11 +127,13 @@ SOUND BONUSES
 	* Find train movement sounds [30 minutes]
 	* Make it start loud and go to the background as more trains are added [30 minutes]
 
-UI BONUSES
-
-* Main Menu
-* Tutorial
-
 BONUSES
-* Make work on mobile
-* Tune starting resources, timers, level ups
+* Make trains idleable
+	* Tapping on a train will stop it
+		* Plays Sound
+	* Tapping on a stopped train will start it
+		* Plays sound
+* [x] Add a "recycle" button
+	* [x] Clicking it transforms build menu mode to be recycle
+	* [x] Destroying tiles lets you place them again
+	* [x] Add ability to recycle junction tiles

@@ -143,6 +143,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, 32)
 
 [node name="ghost_track" type="Sprite2D" parent="."]
 unique_name_in_owner = true
