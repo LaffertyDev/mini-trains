@@ -124,6 +124,7 @@ grid_type = 1
 
 [node name="ProducerStation" parent="rail_grid" instance=ExtResource("7_wqvko")]
 position = Vector2(0, 80)
+currently_produced = true
 
 [node name="train" parent="." instance=ExtResource("6_wqvko")]
 position = Vector2(-16, 0)

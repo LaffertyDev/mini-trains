@@ -78,3 +78,6 @@
 ## Sunday
 
 9 - 9:40 -- pixel art for producers and trains, some audio
+
+9:40 - 10:44 misc improvements, lots of them, new player onboarding, more pixel art button ups, timer improvements, levelup improvements
+

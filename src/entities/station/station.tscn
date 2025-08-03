@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="2_agjdm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agjdm"]
-size = Vector2(1, 4)
+size = Vector2(1, 6)
 
 [node name="station" type="Area2D"]
 collision_layer = 64

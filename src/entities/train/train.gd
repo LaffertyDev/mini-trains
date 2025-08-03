@@ -6,6 +6,7 @@ var holding_cargo = false
 var wagons_following = []
 
 var wagon_res = preload("res://src/entities/wagon/wagon.tscn")
+var current_direction
 
 func _ready():
 	add_to_group("trains")
@@ -42,7 +43,17 @@ func _ready():
 func stop_moving():
 	%TrackEngine.stop()
 	GlobalAudio.stop_train_movement()
-	%animated_sprite.stop()
+	
+	if current_direction:
+		match current_direction:
+			Constants.Direction.left:
+				%animated_sprite.play("idle_left")
+			Constants.Direction.right:
+				%animated_sprite.play("idle_right")
+			Constants.Direction.bottom:
+				%animated_sprite.play("idle_bottom")
+			Constants.Direction.top:
+				%animated_sprite.play("idle_top")
 	
 	
 func start_moving():
@@ -51,6 +62,17 @@ func start_moving():
 	%animated_sprite.play()
 	for w in wagons_following:
 		w.move()
+		
+	if current_direction:
+		match current_direction:
+			Constants.Direction.left:
+				%animated_sprite.play("moving_left")
+			Constants.Direction.right:
+				%animated_sprite.play("moving_right")
+			Constants.Direction.bottom:
+				%animated_sprite.play("moving_bottom")
+			Constants.Direction.top:
+				%animated_sprite.play("moving_top")
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	get_parent().call_deferred("remove_child", self)
@@ -76,6 +98,7 @@ func _on_track_engine_direction_facing_change(direction: Constants.Direction) ->
 			%animated_sprite.play("moving_bottom")
 		Constants.Direction.top:
 			%animated_sprite.play("moving_top")
+	current_direction = direction
 
 
 func _on_track_engine_enter_station(station: Station) -> void:

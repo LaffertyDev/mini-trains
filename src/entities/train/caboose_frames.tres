@@ -1,10 +1,22 @@
-[gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://bva8b1838pfxw"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://bva8b1838pfxw"]
 
 [ext_resource type="Texture2D" uid="uid://ccmfpd6syke3a" path="res://src/entities/train/caboose.png" id="1_tgwhv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnvc4"]
 atlas = ExtResource("1_tgwhv")
-region = Rect2(0, 0, 48, 36)
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjjt1"]
+atlas = ExtResource("1_tgwhv")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac3xe"]
+atlas = ExtResource("1_tgwhv")
+region = Rect2(192, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10h7l"]
+atlas = ExtResource("1_tgwhv")
+region = Rect2(192, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgwhv"]
 atlas = ExtResource("1_tgwhv")
@@ -77,7 +89,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_qnvc4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle_bottom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjjt1")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac3xe")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10h7l")
+}],
+"loop": true,
+"name": &"idle_top",
 "speed": 5.0
 }, {
 "frames": [{

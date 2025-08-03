@@ -1,15 +1,14 @@
 extends Area2D
 class_name ProducerStation
 
-var currently_produced = 1
-var maximum_held_production = 1
+@export var currently_produced: bool = false
 var is_playing_doom = false
 	
 func has_production_ready():
-	return currently_produced > 0
+	return currently_produced
 	
 func take_production():
-	currently_produced -= 1
+	currently_produced = false
 	GlobalAudio.play_sound_cargo_dropoff()
 	%loaded_till_decay_starts.stop()
 	%decay_death_timer.stop()
@@ -22,8 +21,12 @@ func take_production():
 	
 func _ready():
 	add_to_group("producers")
-	%animated_sprite.play("loaded")
-	%loaded_till_decay_starts.start()
+	if currently_produced:
+		%animated_sprite.play("loaded")
+		%loaded_till_decay_starts.start()
+	else:
+		%animated_sprite.play("loading")
+		
 
 func _process(_delta: float):
 	%hack_label.text = str(%decay_death_timer.time_left).pad_decimals(0)
@@ -37,8 +40,8 @@ func _on_decay_death_timer_timeout() -> void:
 func _on_animated_sprite_animation_finished() -> void:
 	if %animated_sprite.animation == "loading":
 		%animated_sprite.play("loaded")
-		if currently_produced < maximum_held_production:
-			currently_produced += 1
+		if not currently_produced:
+			currently_produced = true
 			%loaded_till_decay_starts.start()
 
 func _on_loaded_till_decay_starts_timeout() -> void:
