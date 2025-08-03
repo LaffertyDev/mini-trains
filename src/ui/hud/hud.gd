@@ -1,6 +1,15 @@
 extends Control
 class_name GuiController
 
+func _process(_delta: float) -> void:
+	#%label_time.text = str(PlayerData.stat_time_elapsed).pad_decimals(1)
+	%label_score.text = str(PlayerData.compute_score())
+	%label_tracks_placed.text = str(PlayerData.stat_tracks_placed)
+	%label_trains_placed.text = str(PlayerData.stat_trains_placed)
+	%label_distance.text = str(PlayerData.stat_trains_distance_moved)
+	%label_loads.text = str(PlayerData.stat_loads_completed)
+
+
 func sync_gui(animate: bool):
 	%rail_label.text = str(PlayerData.current_tracks)
 	%train_label.text = str(PlayerData.current_trains)

@@ -21,8 +21,8 @@ func get_grid() -> GridController:
 func get_gui() -> GuiController:
 	return %Hud
 
-func _on_player_data_change():
-	%Hud.sync_gui(true)
+func _on_player_data_change(animate: bool):
+	%Hud.sync_gui(animate)
 	
 func on_load_dropoff():
 	if random.randi() % 100 > 90:
@@ -30,7 +30,7 @@ func on_load_dropoff():
 	else:
 		PlayerData.current_tracks += 10
 		
-	PlayerData.player_data_changed.emit()
+	PlayerData.broadcast_change(true)
 	if %levelup_timer.is_stopped():
 		%levelup_timer.start()
 	

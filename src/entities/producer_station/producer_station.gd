@@ -17,7 +17,6 @@ func take_production():
 	if is_playing_doom:
 		GlobalAudio.cancel_sound_ticking_clock_doom()
 		is_playing_doom = false
-	%hack_label.hide()
 	
 func _ready():
 	add_to_group("producers")
@@ -26,10 +25,6 @@ func _ready():
 		%loaded_till_decay_starts.start()
 	else:
 		%animated_sprite.play("loading")
-		
-
-func _process(_delta: float):
-	%hack_label.text = str(%decay_death_timer.time_left).pad_decimals(0)
 
 func _on_decay_death_timer_timeout() -> void:
 	GlobalAudio.play_sound_defeat()
@@ -48,7 +43,6 @@ func _on_loaded_till_decay_starts_timeout() -> void:
 	%animated_sprite.play("critical")
 	%decay_death_timer.start()
 	%decay_death_audio_start_timer.start()
-	%hack_label.show()
 
 func _on_decay_death_audio_start_timer_timeout() -> void:
 	if %animated_sprite.animation == "critical":
