@@ -3,6 +3,7 @@ class_name GameController
 
 var rail_grid_controller
 var random = RandomNumberGenerator.new()
+var levelups = 0
 
 func _ready():
 	random.randomize()
@@ -37,6 +38,15 @@ func switch_scene_to_defeat():
 func _on_levelup_timer_timeout() -> void:
 	var producers = get_tree().get_nodes_in_group("producers")
 	var distance_modifier = 30
+	if levelups == 0:
+		%levelup_timer.start(30)
+	elif levelups == 1:
+		%levelup_timer.start(35)
+	elif levelups == 2:
+		%levelup_timer.start(60)
+	else:
+		%levelup_timer.start(%levelup_timer.wait_time + 5.0)
+	GlobalAudio.play_sound_levelup()
 	
 	var inner_radius = max(1, int(producers.size() * 0.25))
 	var outer_radius = max(2, int(producers.size() * 1.25))
@@ -53,7 +63,8 @@ func _on_levelup_timer_timeout() -> void:
 		if is_grid_valid(grid_position):
 			rail_grid_controller.setup_producer_at_pos(grid_position)
 			PlayerData.current_trains += 1
-			PlayerData.current_tracks += 10
+			PlayerData.current_tracks += 20
+			PlayerData.player_data_changed.emit()
 			return
 		distance_modifier += 1
 

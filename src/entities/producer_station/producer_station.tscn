@@ -31,7 +31,7 @@ can_be_recycled = false
 
 [node name="loaded_till_decay_starts" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 30.0
+wait_time = 10.0
 one_shot = true
 
 [node name="decay_death_timer" type="Timer" parent="."]
@@ -42,9 +42,9 @@ one_shot = true
 
 [node name="hack_label" type="Label" parent="."]
 unique_name_in_owner = true
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 5.0
+offset_top = -23.0
+offset_right = 45.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.5, 8)

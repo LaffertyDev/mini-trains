@@ -1,11 +1,15 @@
 extends Node
 
-var is_playing_clock_of_doom = false
-var clock_of_doom_high = false
-var clock_of_doom_timeout = 0.6
+var is_playing_clock_of_doom = 0
+var clock_of_doom_last_note_high = false
+const clock_of_doom_default = 0.9
+var clock_of_doom_timeout = clock_of_doom_default
 
 func play_sound_defeat():
 	%sound_defeat.play()
+	
+func play_sound_levelup():
+	%sound_levelup.play()
 	
 func play_sound_rotate_junction():
 	%sound_place_rotate_junction.play()
@@ -26,26 +30,26 @@ func play_sound_click_tile():
 	%sound_click_tile.play()
 
 func play_sound_ticking_clock_doom():
-	if not is_playing_clock_of_doom:
-		is_playing_clock_of_doom = true
-		clock_of_doom_timeout = 0.6
-		set_clock_doom_state()
+	if is_playing_clock_of_doom == 0:
+		clock_of_doom_timeout = clock_of_doom_default
+		%clicking_tock_doom_ticktock.start(clock_of_doom_timeout)
+		%sound_clock_tick_high.play()
+		clock_of_doom_last_note_high = true
+	is_playing_clock_of_doom += 1
 
 func cancel_sound_ticking_clock_doom():
-	is_playing_clock_of_doom = false
+	is_playing_clock_of_doom -= 1
+	
+func cancel_sound_doom_completely():
+	is_playing_clock_of_doom = 0
+	%clicking_tock_doom_ticktock.stop()
 
 func _on_clicking_tock_doom_ticktock_timeout() -> void:
-	set_clock_doom_state()
-			
-func set_clock_doom_state():
-	if is_playing_clock_of_doom:
-		clock_of_doom_high = not clock_of_doom_high
-		%clicking_tock_doom_ticktock.wait_time = clock_of_doom_timeout
-		if clock_of_doom_high:
+	if is_playing_clock_of_doom > 0:
+		clock_of_doom_timeout -= 0.01
+		%clicking_tock_doom_ticktock.start(clock_of_doom_timeout)
+		if clock_of_doom_last_note_high:
 			%sound_clock_tick_low.play()
 		else:
 			%sound_clock_tick_high.play()
-		if %clicking_tock_doom_ticktock.is_stopped():
-			clock_of_doom_timeout -= 0.01
-			%clicking_tock_doom_ticktock.wait_time = clock_of_doom_timeout
-			%clicking_tock_doom_ticktock.start()
+		clock_of_doom_last_note_high = not clock_of_doom_last_note_high

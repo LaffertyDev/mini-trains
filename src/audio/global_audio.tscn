@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7lqyxmpoal6"]
+[gd_scene load_steps=12 format=3 uid="uid://b7lqyxmpoal6"]
 
 [ext_resource type="Script" uid="uid://dwn8v8spqmvr0" path="res://src/audio/global_audio.gd" id="1_h6xn1"]
 [ext_resource type="AudioStream" uid="uid://bg1e30oxrfpvu" path="res://src/audio/sound_load_pickup.ogg" id="2_go2if"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bsiqtmhyoxgng" path="res://src/audio/sound_click_rotate_junction.ogg" id="4_0ikp8"]
 [ext_resource type="AudioStream" uid="uid://dre5v4b27sgww" path="res://src/audio/ticks/ticking clock - tick1.wav" id="4_jlksr"]
 [ext_resource type="AudioStream" uid="uid://b1ohh122cnscc" path="res://src/audio/ticks/ticking clock - tick2.wav" id="5_6703h"]
+[ext_resource type="AudioStream" uid="uid://bruuycqebn76r" path="res://src/audio/sound_level_up.ogg" id="5_jvrte"]
 [ext_resource type="AudioStream" uid="uid://b5p2gvlidpjnj" path="res://src/audio/sound_click_place_building.ogg" id="6_blsvj"]
 [ext_resource type="AudioStream" uid="uid://31ulm25fybfm" path="res://src/audio/sound_click_tile.ogg" id="7_jvrte"]
 [ext_resource type="AudioStream" uid="uid://drhioqm1sc1a7" path="res://src/audio/sound_click_recycle_building.ogg" id="7_ywp5t"]
@@ -25,6 +26,10 @@ stream = ExtResource("3_ngv3k")
 [node name="sound_defeat" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_6703h")
+
+[node name="sound_levelup" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_jvrte")
 
 [node name="sound_place_rotate_junction" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -52,7 +57,7 @@ stream = ExtResource("5_6703h")
 
 [node name="clicking_tock_doom_ticktock" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.6
+wait_time = 0.9
 one_shot = true
 
 [connection signal="timeout" from="clicking_tock_doom_ticktock" to="." method="_on_clicking_tock_doom_ticktock_timeout"]
