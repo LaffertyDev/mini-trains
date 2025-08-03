@@ -41,38 +41,63 @@ func update_permitted_rotations() -> void:
 	var has_neighbor_right = grid_controller.get_tile_at_pos(my_position + Vector2(1, 0)) == Constants.GridType.TRACK
 
 	var rotations = []
-	if has_neighbor_bottom and has_neighbor_top and has_neighbor_left and has_neighbor_right:
-		rotations = [6, 7]
-	else:
-		if has_neighbor_left and has_neighbor_right and !has_neighbor_top and !has_neighbor_bottom:
-			rotations.append(0)
-		if has_neighbor_bottom and has_neighbor_top and !has_neighbor_left and !has_neighbor_right:
-			rotations.append(1)
-		if has_neighbor_bottom and has_neighbor_right:
-			rotations.append(2)
-		if has_neighbor_left and has_neighbor_bottom:
-			rotations.append(3)
-		if has_neighbor_top and has_neighbor_left:
-			rotations.append(4)
-		if has_neighbor_top and has_neighbor_right:
-			rotations.append(5)
+	if has_neighbor_left and has_neighbor_right and !has_neighbor_top and !has_neighbor_bottom:
+		rotations.append(0)
+	if has_neighbor_bottom and has_neighbor_top and !has_neighbor_left and !has_neighbor_right:
+		rotations.append(1)
+	if has_neighbor_bottom and has_neighbor_right:
+		rotations.append(2)
+	if has_neighbor_left and has_neighbor_bottom:
+		rotations.append(3)
+	if has_neighbor_top and has_neighbor_left:
+		rotations.append(4)
+	if has_neighbor_top and has_neighbor_right:
+		rotations.append(5)
+	
+	if has_neighbor_left and has_neighbor_right and (has_neighbor_top or has_neighbor_bottom):
+		rotations.append(6)
+	if has_neighbor_top and has_neighbor_bottom and (has_neighbor_left or has_neighbor_right):
+		rotations.append(7)
 		
-		if has_neighbor_left and has_neighbor_right and (has_neighbor_top or has_neighbor_bottom):
-			rotations.append(6)
-		if has_neighbor_top and has_neighbor_bottom and (has_neighbor_left or has_neighbor_right):
-			rotations.append(7)
-			
-		if rotations.size() == 0:
-			if has_neighbor_left or has_neighbor_right:
-				rotations.append(0)
-			else:
-				rotations.append(1)
-	
+	if rotations.size() == 0:
+		if has_neighbor_left or has_neighbor_right:
+			rotations.append(0)
+		else:
+			rotations.append(1)
+
 	permitted_rotations = rotations
-	var has_rotation = true
-	for r in permitted_rotations:
-		has_rotation = (has_rotation and current_rotation == r)
 	
-	if current_rotation == null or not has_rotation:
-		current_rotation = permitted_rotations[0]
+	# if my current rotation, or an equivalent rotation, is in the array
+	# then use it
+	
+	var current_idx = permitted_rotations.find(current_rotation)
+	if (current_idx == -1):
+		if current_rotation == 0:
+			if permitted_rotations.has(6):
+				current_rotation = 6
+			else:
+				current_rotation = permitted_rotations[0]
+		elif current_rotation == 6:
+			if permitted_rotations.has(0):
+				current_rotation = 0
+			else:
+				current_rotation = permitted_rotations[0]
+		elif current_rotation == 1:
+			if permitted_rotations.has(7):
+				current_rotation = 7
+			else:
+				current_rotation = permitted_rotations[0]
+		elif current_rotation == 7:
+			if permitted_rotations.has(1):
+				current_rotation = 1
+			else:
+				current_rotation = permitted_rotations[0]
+		else:
+			current_rotation = permitted_rotations[0]
+	else:
+		# our current rotation is in the array
+		# so there's nothing to do, we're already using it
+		pass
+	
+		# is there an equivalent?
 	set_sprite_match_rotation()
