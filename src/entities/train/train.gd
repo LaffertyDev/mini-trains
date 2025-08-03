@@ -7,6 +7,7 @@ var wagons_following = []
 
 var wagon_res = preload("res://src/entities/wagon/wagon.tscn")
 var current_direction
+var moving = true
 
 func _ready():
 	add_to_group("trains")
@@ -42,6 +43,7 @@ func _ready():
 		
 func stop_moving():
 	%TrackEngine.stop()
+	moving = false
 	GlobalAudio.stop_train_movement()
 	
 	if current_direction:
@@ -60,6 +62,7 @@ func start_moving():
 	%TrackEngine.move()
 	GlobalAudio.play_train_movement()
 	%animated_sprite.play()
+	moving = true
 	for w in wagons_following:
 		w.move()
 		

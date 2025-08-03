@@ -25,7 +25,7 @@ func _on_player_data_change():
 	%Hud.sync_gui(true)
 	
 func on_load_dropoff():
-	if random.randi() % 100 > 75:
+	if random.randi() % 100 > 90:
 		PlayerData.current_trains += 1
 	else:
 		PlayerData.current_tracks += 20

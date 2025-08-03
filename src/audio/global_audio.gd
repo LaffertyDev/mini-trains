@@ -34,7 +34,11 @@ func _process(_delta: float) -> void:
 		if !has_producer_critical:
 			cancel_sound_doom_completely()
 			
-	
+		var trains = get_tree().get_nodes_in_group("trains")
+		for t in trains:
+			if t.moving and not %sound_train_chunkchunk.playing:
+				play_train_movement() # hack
+
 func stop_train_movement():
 	%sound_train_chunkchunk.stop()
 	

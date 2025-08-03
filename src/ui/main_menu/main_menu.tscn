@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxu0wkcpysmfx"]
+[gd_scene load_steps=8 format=3 uid="uid://dxu0wkcpysmfx"]
 
 [ext_resource type="Script" uid="uid://rt5ryjbcuvj2" path="res://src/ui/main_menu/main_menu.gd" id="1_2hyyg"]
+[ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="2_4ux21"]
+[ext_resource type="Texture2D" uid="uid://dmegi2foiejs" path="res://src/entities/gridtile/rail_horizontal.png" id="3_osdni"]
+[ext_resource type="Texture2D" uid="uid://detyf4yljr8in" path="res://src/entities/station/train_station.png" id="4_vivct"]
+[ext_resource type="Texture2D" uid="uid://bvdckp634xaqn" path="res://src/ui/main_menu/production_static.png" id="5_6ut4k"]
+[ext_resource type="Texture2D" uid="uid://5obsg2kvuwoq" path="res://assets_source/rail_junction_90_base.png" id="6_hhctb"]
+[ext_resource type="Texture2D" uid="uid://dc4226248a7ro" path="res://assets_source/rail_junction_horizontal_base.png" id="7_2rik1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2hyyg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,78 +26,159 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Mini Trains"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "Your trains will follow rails"
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your trains will follow tracks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Your trains bring box cars to your station"
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_4ux21")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_osdni")
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Trains bring loads to your station"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label11" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Box cars are produced in houses"
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_vivct")
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Loads are produced in houses"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Left click to build rails"
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("5_6ut4k")
+
+[node name="Label12" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "You get more rails/trains by dropping off loads"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Right Click to reclaim rails"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Left click to build tracks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Left Click on a Junction to Rotate it"
+text = "Right click to reclaim tracks"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label10" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label14" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Left click on a rail to place a Train"
+text = "Tracks will automatically form junctions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Box cars expire	"
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("6_hhctb")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("7_2rik1")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("3_osdni")
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Left click on a junction to rotate it"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label9" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "An expired box car is game over"
+text = "Left click on a track to place a train"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label13" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Your score based on travel distance, loads, and tracks placed"
+text = "WASD/Arrows to pan camera, Q/E to zoom"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="button_start_game" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Your score based on travel distance, loads trains and tracks placed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loads in houses expire"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "An expired load is game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="button_start_game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Start Game"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/button_start_game" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/button_start_game" to="." method="_on_button_start_game_pressed"]

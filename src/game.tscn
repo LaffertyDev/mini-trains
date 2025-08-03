@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bnofxuo3vbq5l"]
+[gd_scene load_steps=13 format=4 uid="uid://bnofxuo3vbq5l"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="7_wqvko"]
 [ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="8_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://fxbedv8vi18g" path="res://src/ui/hud/hud.tscn" id="8_uktfx"]
+[ext_resource type="Script" uid="uid://vskchi7y2pga" path="res://src/camera.gd" id="10_qiocs"]
 [ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="10_uktfx"]
 [ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="11_y2hwx"]
 
@@ -148,6 +149,8 @@ mouse_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 32)
+script = ExtResource("10_qiocs")
+speed = 200
 
 [node name="ghost_track" type="Sprite2D" parent="."]
 unique_name_in_owner = true
