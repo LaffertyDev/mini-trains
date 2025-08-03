@@ -38,7 +38,8 @@ volume_db = -10.0
 [node name="sound_train_crash" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_dcamn")
-pitch_scale = 0.6
+volume_db = -15.0
+pitch_scale = 0.5
 
 [node name="sound_train_chunkchunk" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

@@ -61,6 +61,10 @@ func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> v
 	wagons_following = []
 	GlobalAudio.play_train_crash()
 	GlobalAudio.stop_train_movement()
+	
+	var root = get_tree().current_scene
+	if root:
+		root.on_train_died()
 
 func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
 	match direction:
@@ -86,11 +90,6 @@ func _on_track_engine_enter_station(station: Station) -> void:
 			w.call_deferred("queue_free")
 		wagons_following = []
 		stop_moving()
-		
-		# this invalidates most of the objective of the game
-		# (that is, to make loops)
-		# a better approach would be to cool it off
-		PlayerData.handle_make_train()
 
 func _on_stop_timer_timeout() -> void:
 	start_moving()

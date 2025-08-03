@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjbwlcir7j1fs" path="res://src/entities/track_engine/track_engine.tscn" id="3_o6iic"]
 
 [node name="train" type="Node2D"]
+z_index = 1
 script = ExtResource("1_fmutq")
 
 [node name="stop_timer" type="Timer" parent="."]

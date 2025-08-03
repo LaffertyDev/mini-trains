@@ -17,8 +17,9 @@ func _ready():
 
 func remove_grid_tile_at_position(pos: Vector2) -> void:
 	var real_grid = get_real_tile_at_pos(pos)
-	real_grid.get_parent().call_deferred("remove_child", real_grid)
-	real_grid.call_deferred("queue_free")
+	if real_grid:
+		real_grid.get_parent().call_deferred("remove_child", real_grid)
+		real_grid.call_deferred("queue_free")
 
 func _process(_delta: float) -> void:
 	var tile_pos = world_to_grid(get_global_mouse_position())

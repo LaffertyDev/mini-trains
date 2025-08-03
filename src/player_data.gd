@@ -29,15 +29,21 @@ func compute_score() -> int:
 		int(floor((stat_time_elapsed * 10))) \
 		+ stat_trains_distance_moved \
 		+ (stat_tracks_placed * 10) \
-		+ (stat_trains_placed * 100) \
+		- (stat_trains_placed * 100) \
 		+ (stat_loads_completed * 10)
 
 func handle_build() -> void:
 	current_tracks -= 1
+	stat_tracks_placed += 1
 	player_data_changed.emit()
 
 func handle_make_train() -> void:
 	current_trains -= 1
+	stat_trains_placed += 1
+	player_data_changed.emit()
+	
+func handle_recycle_trains() -> void:
+	current_trains += 1
 	player_data_changed.emit()
 
 func handle_recycle() -> void:

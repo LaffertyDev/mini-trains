@@ -3,7 +3,7 @@ class_name TrackEngine
 
 var tiles_per_second = 1.0
 
-var base_speed = 40
+var base_speed = 30
 var speed = 0
 var stopped = false
 var movement_direction = Vector2(-1, 0)

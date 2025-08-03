@@ -63,11 +63,12 @@ func _on_levelup_timer_timeout() -> void:
 		var grid_position = rail_grid_controller.world_to_grid(random_position)
 		if is_grid_valid(grid_position):
 			rail_grid_controller.setup_producer_at_pos(grid_position)
-			PlayerData.current_trains += 1
-			PlayerData.current_tracks += 20
-			PlayerData.player_data_changed.emit()
 			return
 		distance_modifier += 1
+		
+func on_train_died() -> void:
+	await get_tree().create_timer(3.0).timeout
+	PlayerData.handle_recycle_trains()# Do some action
 
 func is_grid_valid(grid_position: Vector2) -> bool:
 	for grid_x in range(-1, 3):

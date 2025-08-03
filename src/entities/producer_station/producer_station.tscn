@@ -31,13 +31,19 @@ can_be_recycled = false
 
 [node name="loaded_till_decay_starts" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 
 [node name="decay_death_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 30.0
+wait_time = 35.0
+one_shot = true
+
+[node name="decay_death_audio_start_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 10.0
 one_shot = true
 
 [node name="hack_label" type="Label" parent="."]
@@ -73,3 +79,4 @@ grid_type = 2
 [connection signal="animation_finished" from="animated_sprite" to="." method="_on_animated_sprite_animation_finished"]
 [connection signal="timeout" from="loaded_till_decay_starts" to="." method="_on_loaded_till_decay_starts_timeout"]
 [connection signal="timeout" from="decay_death_timer" to="." method="_on_decay_death_timer_timeout"]
+[connection signal="timeout" from="decay_death_audio_start_timer" to="." method="_on_decay_death_audio_start_timer_timeout"]

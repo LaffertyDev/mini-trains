@@ -73,7 +73,7 @@ func cancel_sound_doom_completely():
 
 func _on_clicking_tock_doom_ticktock_timeout() -> void:
 	if is_playing_clock_of_doom > 0:
-		clock_of_doom_timeout -= 0.01
+		clock_of_doom_timeout = max(0.4, clock_of_doom_timeout - 0.01)
 		%clicking_tock_doom_ticktock.start(clock_of_doom_timeout)
 		if clock_of_doom_last_note_high:
 			%sound_clock_tick_low.play()
