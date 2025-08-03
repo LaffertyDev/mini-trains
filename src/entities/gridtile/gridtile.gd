@@ -6,6 +6,8 @@ class_name GridTile
 @export var grid_type: Constants.GridType = Constants.GridType.EMPTY:
 	set(new_resource):
 		grid_type = new_resource
+		
+@export var can_be_recycled: bool = true
 
 var current_rotation = null
 var permitted_rotations = []

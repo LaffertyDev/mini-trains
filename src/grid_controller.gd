@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 			GlobalAudio.play_sound_place_tile()
 			get_tree().call_group("grid_tiles", "update_permitted_rotations")
 	elif Input.is_action_pressed("secondary_action"):
-		if tile == Constants.GridType.TRACK:
+		if tile == Constants.GridType.TRACK and real_tile.can_be_recycled:
 			PlayerData.handle_recycle()
 			remove_grid_tile_at_position(tile_pos)
 			get_tree().call_group("grid_tiles", "update_permitted_rotations")

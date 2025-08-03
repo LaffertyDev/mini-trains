@@ -19,11 +19,13 @@ texture = ExtResource("1_8msu0")
 [node name="gridtyle" parent="." instance=ExtResource("2_agjdm")]
 visible = false
 grid_type = 1
+can_be_recycled = false
 
 [node name="gridtyle2" parent="." instance=ExtResource("2_agjdm")]
 visible = false
 position = Vector2(16, 0)
 grid_type = 1
+can_be_recycled = false
 
 [node name="gridtyle3" parent="." instance=ExtResource("2_agjdm")]
 visible = false

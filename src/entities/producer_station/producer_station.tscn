@@ -21,11 +21,13 @@ animation = &"loading"
 [node name="gridtyle" parent="." instance=ExtResource("3_uuqnp")]
 visible = false
 grid_type = 1
+can_be_recycled = false
 
 [node name="gridtyle2" parent="." instance=ExtResource("3_uuqnp")]
 visible = false
 position = Vector2(16, 0)
 grid_type = 1
+can_be_recycled = false
 
 [node name="loaded_till_decay_starts" type="Timer" parent="."]
 unique_name_in_owner = true
