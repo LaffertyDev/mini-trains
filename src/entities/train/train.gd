@@ -81,10 +81,8 @@ func _on_track_engine_direction_facing_change(direction: Constants.Direction) ->
 func _on_track_engine_enter_station(station: Station) -> void:
 	if holding_cargo:
 		station.take_cargo()
-		GlobalAudio.play_sound_cargo_dropoff()
 		%stop_timer.start()
 		self.holding_cargo = false
-		PlayerData.stat_loads_completed += 1
 		for w in wagons_following:
 			w.get_parent().call_deferred("remove_child", w)
 			w.call_deferred("queue_free")
@@ -97,7 +95,6 @@ func _on_stop_timer_timeout() -> void:
 func _on_track_engine_enter_producer(producer: ProducerStation) -> void:
 	if producer.has_production_ready() and not holding_cargo:
 		producer.take_production()
-		GlobalAudio.play_sound_cargo_dropoff()
 		%stop_timer.start()
 		stop_moving()
 		self.holding_cargo = true

@@ -10,6 +10,7 @@ func has_production_ready():
 	
 func take_production():
 	currently_produced -= 1
+	GlobalAudio.play_sound_cargo_dropoff()
 	%loaded_till_decay_starts.stop()
 	%decay_death_timer.stop()
 	%decay_death_audio_start_timer.stop()

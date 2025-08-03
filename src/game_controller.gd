@@ -3,9 +3,9 @@ class_name GameController
 
 var rail_grid_controller
 var random = RandomNumberGenerator.new()
-var levelups = 0
 
 func _ready():
+	add_to_group("game_controller")
 	random.randomize()
 	rail_grid_controller = %rail_grid
 	PlayerData.reset_game()
@@ -21,36 +21,29 @@ func get_grid() -> GridController:
 func get_gui() -> GuiController:
 	return %Hud
 
-enum MouseClickState { None, Pressed }
-var current_mouse_click_state = MouseClickState.None
-var current_mouse_pressed_at = null
-
 func _on_player_data_change():
 	%Hud.sync_gui()
 	
-func on_defeat() -> void:
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color.BLACK, 2).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_callback(switch_scene_to_defeat)
-
-func switch_scene_to_defeat():
-	get_tree().change_scene_to_file("res://src/ui/end_round_screen/end_round_screen.tscn")
-
-func _on_levelup_timer_timeout() -> void:
-	var producers = get_tree().get_nodes_in_group("producers")
-	var distance_modifier = 30
-	if levelups == 0:
-		%levelup_timer.start(30)
-	elif levelups == 1:
-		%levelup_timer.start(35)
-	elif levelups == 2:
-		%levelup_timer.start(60)
+func on_load_dropoff():
+	if random.randi() % 100 > 75:
+		PlayerData.current_trains += 1
 	else:
-		%levelup_timer.start(%levelup_timer.wait_time + 5.0)
-	GlobalAudio.play_sound_levelup()
+		PlayerData.current_tracks += 20
+		
+	PlayerData.player_data_changed.emit()
+	if %levelup_timer.is_stopped():
+		%levelup_timer.start()
 	
-	var inner_radius = max(1, int(producers.size() * 0.25))
-	var outer_radius = max(2, int(producers.size() * 1.25))
+func spawn_producer():
+	var distance_modifier = 30
+	
+	var new_wait_time = max(30.0, %levelup_timer.wait_time + 5.0)
+	%levelup_timer.start(new_wait_time)
+	GlobalAudio.play_sound_levelup()
+	PlayerData.handle_level_up()
+	
+	var inner_radius = max(1, int(PlayerData.level_ups * 0.25))
+	var outer_radius = max(2, int(PlayerData.level_ups * 1.25))
 
 	# spawn in a random spot on a circle with radius of the number of producers
 	while(true):
@@ -65,6 +58,18 @@ func _on_levelup_timer_timeout() -> void:
 			rail_grid_controller.setup_producer_at_pos(grid_position)
 			return
 		distance_modifier += 1
+	
+	
+func on_defeat() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate", Color.BLACK, 2).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_callback(switch_scene_to_defeat)
+
+func switch_scene_to_defeat():
+	get_tree().change_scene_to_file("res://src/ui/end_round_screen/end_round_screen.tscn")
+
+func _on_levelup_timer_timeout() -> void:
+	spawn_producer()
 		
 func on_train_died() -> void:
 	await get_tree().create_timer(3.0).timeout
