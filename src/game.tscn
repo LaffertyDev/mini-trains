@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dgke14wded48i"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
-[ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
+[ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_engine.gd" id="1_bs6l1"]
 [ext_resource type="PackedScene" uid="uid://cywryjq0iv7lv" path="res://src/grid_controller.tscn" id="2_qiocs"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="5_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_wqvko"]
@@ -131,6 +131,7 @@ unique_name_in_owner = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 32)

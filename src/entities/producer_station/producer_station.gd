@@ -30,7 +30,7 @@ func _on_decay_death_timer_timeout() -> void:
 	GlobalAudio.play_sound_defeat()
 	GlobalAudio.cancel_sound_ticking_clock_doom()
 	GlobalAudio.cancel_sound_doom_completely()
-	get_tree().current_scene.on_defeat()
+	get_tree().call_group("game_controller", "on_defeat")
 
 func _on_animated_sprite_animation_finished() -> void:
 	if %animated_sprite.animation == "loading":

@@ -11,9 +11,11 @@ var moving = true
 
 func _ready():
 	add_to_group("trains")
-	var grid: GridController = get_tree().current_scene.get_grid()
-	var grid_position = grid.world_to_grid(self.global_position)
-	var grid_tile = grid.get_real_tile_at_pos(grid_position)
+		
+func grid_initialize():
+	var grid_controller = GameCoordinator.get_grid_controller()
+	var grid_position = grid_controller.world_to_grid(self.global_position)
+	var grid_tile = grid_controller.get_real_tile_at_pos(grid_position)
 	if grid_tile == null:
 		print("ERROR ERROR ERROR")
 	else:
@@ -37,9 +39,10 @@ func _ready():
 				starting_direction = Vector2(0, 1)
 			_:
 				print("ERROR ERROR ERROR")
-		self.position = grid.grid_to_world_top_left(grid_position)
+		self.position = grid_controller.grid_to_world_top_left(grid_position)
 		%TrackEngine.set_direction(starting_direction)
 		start_moving()
+	
 		
 func stop_moving():
 	%TrackEngine.stop()
@@ -94,9 +97,8 @@ func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> v
 	GlobalAudio.play_train_crash()
 	GlobalAudio.stop_train_movement()
 	
-	var root = get_tree().current_scene
-	if root:
-		root.on_train_died()
+	var game_controller = GameCoordinator.get_game_controller()
+	game_controller.on_train_died()
 
 func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
 	match direction:

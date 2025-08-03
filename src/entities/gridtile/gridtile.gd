@@ -14,7 +14,6 @@ var permitted_rotations = []
 
 func _ready():
 	add_to_group("grid_tiles")
-	update_permitted_rotations()
 	
 func rotate_tile():
 	var rotation_idx = -1
@@ -35,10 +34,7 @@ func set_sprite_match_rotation() -> void:
 	%sprite.frame = current_rotation
 
 func update_permitted_rotations() -> void:
-	var root = get_tree().current_scene
-	if !root:
-		return
-	var grid_controller = root.get_grid()
+	var grid_controller = GameCoordinator.get_grid_controller()
 	var my_position = grid_controller.world_to_grid(self.global_position)
 	var has_neighbor_top = grid_controller.get_tile_at_pos(my_position + Vector2(0, -1)) == Constants.GridType.TRACK
 	var has_neighbor_bottom = grid_controller.get_tile_at_pos(my_position + Vector2(0, 1)) == Constants.GridType.TRACK

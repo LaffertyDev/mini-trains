@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalAudio="*res://src/audio/global_audio.tscn"
 PlayerData="*res://src/player_data.tscn"
+GameCoordinator="*res://src/game_coordinator.gd"
 
 [display]
 

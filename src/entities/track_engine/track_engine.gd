@@ -40,7 +40,7 @@ func move() -> void:
 	tween.tween_property(self, "speed", base_speed, 2.5)
 
 func lock_position_to_tile() -> void:
-	var grid: GridController = get_tree().current_scene.get_grid()
+	var grid: GridController = GameCoordinator.get_grid_controller()
 	var grid_position = grid.world_to_grid(get_parent().global_position)
 	var train_position_in_grid = grid.grid_to_world_top_left(grid_position)
 	self.position = train_position_in_grid
@@ -79,9 +79,9 @@ func _on_center_area_entered(area: Area2D) -> void:
 		PlayerData.stat_trains_distance_moved += 1
 		PlayerData.broadcast_change(false)
 		if tile.grid_type == Constants.GridType.TRACK:
-			var grid: GridController = get_tree().current_scene.get_grid()
-			var grid_position = grid.world_to_grid(area.global_position)
-			var train_position_in_grid = grid.grid_to_world_top_left(grid_position)
+			var grid_controller = GameCoordinator.get_grid_controller()
+			var grid_position = grid_controller.world_to_grid(area.global_position)
+			var train_position_in_grid = grid_controller.grid_to_world_top_left(grid_position)
 			get_parent().position = train_position_in_grid
 			
 			match tile.current_rotation:
@@ -144,9 +144,9 @@ func _on_center_area_entered(area: Area2D) -> void:
 						collide_with_terrain.emit(Constants.Direction.left)
 
 func _on_center_area_exited(area: Area2D) -> void:
-	var grid: GridController = get_tree().current_scene.get_grid()
-	var current_grid_position = grid.world_to_grid(area.global_position)
-	var next_grid_tile = grid.get_tile_at_pos(current_grid_position + movement_direction)
+	var grid_controller = GameCoordinator.get_grid_controller()
+	var current_grid_position = grid_controller.world_to_grid(area.global_position)
+	var next_grid_tile = grid_controller.get_tile_at_pos(current_grid_position + movement_direction)
 	if next_grid_tile == Constants.GridType.EMPTY:
 		collide_with_terrain.emit(Constants.Direction.left) # TODO - MAKE DYNAMIC
 

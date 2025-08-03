@@ -10,16 +10,13 @@ var ghost_train
 var rotate_icon
 
 func _ready():
+	add_to_group("grid_controller")
 	ghost_track = %ghost_track
 	ghost_train = %ghost_train
 	rotate_icon = %rotate_icon
-
-func remove_grid_tile_at_position(pos: Vector2) -> void:
-	var real_grid = get_real_tile_at_pos(pos)
-	if real_grid:
-		real_grid.get_parent().call_deferred("remove_child", real_grid)
-		real_grid.call_deferred("queue_free")
-
+	get_tree().call_group("grid_tiles", "update_permitted_rotations")
+	get_tree().call_group("trains", "grid_initialize")
+	
 func _process(_delta: float) -> void:
 	var tile_pos = world_to_grid(get_global_mouse_position())
 	var tile = get_tile_at_pos(tile_pos)
@@ -65,6 +62,7 @@ func _process(_delta: float) -> void:
 					var train_ins = train_scene.instantiate()
 					train_ins.position = grid_to_world_top_left(tile_pos)
 					add_child(train_ins)
+					train_ins.grid_initialize()
 					PlayerData.handle_make_train()
 					GlobalAudio.play_sound_place_tile()
 					return
@@ -74,12 +72,10 @@ func _process(_delta: float) -> void:
 			set_grid_at_pos(tile_pos, Constants.GridType.TRACK)
 			PlayerData.handle_build()
 			GlobalAudio.play_sound_place_tile()
-			get_tree().call_group("grid_tiles", "update_permitted_rotations")
 	elif Input.is_action_pressed("secondary_action"):
 		if tile == Constants.GridType.TRACK and real_tile.can_be_recycled:
 			PlayerData.handle_recycle()
 			remove_grid_tile_at_position(tile_pos)
-			get_tree().call_group("grid_tiles", "update_permitted_rotations")
 			GlobalAudio.play_sound_recycle_tile()
 
 func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType) -> void:
@@ -87,7 +83,15 @@ func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType) -> void:
 	rail.position = grid_to_world_top_left(grid_pos)
 	rail.grid_type = grid_type
 	add_child(rail)
+	handle_grid_change()
 	
+func remove_grid_tile_at_position(pos: Vector2) -> void:
+	var real_grid = get_real_tile_at_pos(pos)
+	if real_grid:
+		real_grid.get_parent().call_deferred("remove_child", real_grid)
+		real_grid.call_deferred("queue_free")
+		handle_grid_change()
+
 func setup_producer_at_pos(grid_pos: Vector2) -> void:
 	var producer = producer_station_scene.instantiate()
 	producer.position = grid_to_world_top_left(grid_pos)
@@ -123,3 +127,6 @@ func grid_to_world_top_left(grid_pos: Vector2) -> Vector2:
 	var x = floor(grid_pos.x * Constants.GRID_TILE_SIZE_PIXELS)
 	var y = floor(grid_pos.y * Constants.GRID_TILE_SIZE_PIXELS)
 	return Vector2(x, y)
+
+func handle_grid_change():
+	get_tree().call_group("grid_tiles", "update_permitted_rotations")
