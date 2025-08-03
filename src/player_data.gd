@@ -12,7 +12,7 @@ var stat_trains_distance_moved: int = 0
 signal player_data_changed
 
 func reset_game() -> void:
-	current_tracks = 5
+	current_tracks = 30
 	current_trains = 1
 	
 	stat_time_elapsed = 0
@@ -34,6 +34,10 @@ func compute_score() -> int:
 
 func handle_build() -> void:
 	current_tracks -= 1
+	player_data_changed.emit()
+
+func handle_make_train() -> void:
+	current_trains -= 1
 	player_data_changed.emit()
 
 func handle_recycle() -> void:

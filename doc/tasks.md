@@ -80,18 +80,35 @@ UI
 * [x] Add a tracker for the amount of loads the player has shipped [10 minutes]
 * [x] Make trains colliding with trains destroy themselves
 
-* Improve the Game
-* Make placing tiles more enjoyable
-	tile placement should always be top-z
-	placing a tile will also trigger other tiles to activate which is wrong
-	fix the clock ticking down
-	fix mobile tapping does not interact with system
-		fix mobile zooming panning
+BUG TRACKER
 
+* [x] Trains do not die anymore when they enter some rotations
+* [x] If a train dies while holding a wagon, the wagon will not disappear
+* You can delete the tracks underneath the production stations
+* Trains do not collide with rotations anymore
+* You cannot rotate tiles
 
-FIRST MOMENTS IMPROVEMENTS
+WATCHING EMILY PLAY NOTES
+
+* [x] how to pick tiles is non obvious
+* How to delete tiles in non obvious
+* timer starts too late for doom
+* game idles too long without spawning another thing
+* direction at the very beginning is zero and looks sad
+
+## JORDAN FEEDBACK:
+
 
 * also maybe make the starting loop tighter in order to get first random placement faster
+
+----
+
+## BUGS
+
+
+* fix the clock ticking down
+
+## BONUS IMPROVEMENTS
 
 BONUS - PICK THREE
 
@@ -145,13 +162,3 @@ UI BONUSES
 BONUSES
 * Make work on mobile
 * Tune starting resources, timers, level ups
-
-
-FRUSTRATIONS
-* building tracks is annoying.
-
-BUG TRACKER
-
-* [x] Trains do not die anymore when they enter some rotations
-* [x] If a train dies while holding a wagon, the wagon will not disappear
-* You can delete the tracks underneath the production stations

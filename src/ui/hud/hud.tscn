@@ -47,14 +47,7 @@ layout_mode = 2
 text = "7"
 horizontal_alignment = 1
 
-[node name="rail_button" type="Button" parent="MarginContainer/HBoxContainer/Rails/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-icon = ExtResource("1_jobw0")
-
 [node name="Sprite2D2" type="TextureRect" parent="MarginContainer/HBoxContainer/Rails/VBoxContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_cvkdw")
 
@@ -89,5 +82,3 @@ layout_mode = 2
 offset_right = 20.0
 offset_bottom = 20.0
 texture = ExtResource("4_076te")
-
-[connection signal="toggled" from="MarginContainer/HBoxContainer/Rails/VBoxContainer/rail_button" to="." method="_on_rail_button_toggled"]

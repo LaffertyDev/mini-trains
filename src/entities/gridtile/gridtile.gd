@@ -15,12 +15,16 @@ func _ready():
 	update_permitted_rotations()
 	
 func rotate_tile():
-	var rotation_idx = permitted_rotations.find(current_rotation)
+	var rotation_idx = -1
+	for i in range(permitted_rotations.size()):
+		if current_rotation == permitted_rotations[i]:
+			rotation_idx = i
+			break
+	
 	if rotation_idx == -1:
 		current_rotation = permitted_rotations[0]
-		pass
 	else:
-		current_rotation = (rotation_idx + 1) % permitted_rotations.size()
+		current_rotation = permitted_rotations[(rotation_idx + 1) % permitted_rotations.size()]
 		pass
 	set_sprite_match_rotation()
 	GlobalAudio.play_sound_rotate_junction()
@@ -37,15 +41,13 @@ func update_permitted_rotations() -> void:
 	var has_neighbor_right = grid_controller.get_tile_at_pos(my_position + Vector2(1, 0)) == Constants.GridType.TRACK
 
 	var rotations = []
-	if not has_neighbor_top and not has_neighbor_bottom:
-		# simple horizontal
-		rotations.append(0)
-	elif not has_neighbor_left and not has_neighbor_right:
-		# simple vertical
-		rotations.append(1)
-	elif has_neighbor_bottom and has_neighbor_top and has_neighbor_left and has_neighbor_right:
+	if has_neighbor_bottom and has_neighbor_top and has_neighbor_left and has_neighbor_right:
 		rotations = [6, 7]
 	else:
+		if has_neighbor_left and has_neighbor_right and !has_neighbor_top and !has_neighbor_bottom:
+			rotations.append(0)
+		if has_neighbor_bottom and has_neighbor_top and !has_neighbor_left and !has_neighbor_right:
+			rotations.append(1)
 		if has_neighbor_bottom and has_neighbor_right:
 			rotations.append(2)
 		if has_neighbor_left and has_neighbor_bottom:
@@ -54,6 +56,17 @@ func update_permitted_rotations() -> void:
 			rotations.append(4)
 		if has_neighbor_top and has_neighbor_right:
 			rotations.append(5)
+		
+		if has_neighbor_left and has_neighbor_right and (has_neighbor_top or has_neighbor_bottom):
+			rotations.append(6)
+		if has_neighbor_top and has_neighbor_bottom and (has_neighbor_left or has_neighbor_right):
+			rotations.append(7)
+			
+		if rotations.size() == 0:
+			if has_neighbor_left or has_neighbor_right:
+				rotations.append(0)
+			else:
+				rotations.append(1)
 	
 	permitted_rotations = rotations
 	var has_rotation = true

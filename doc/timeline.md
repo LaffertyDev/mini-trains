@@ -66,6 +66,6 @@
 
 7 - 7:23 get it up on itch
 
-7:23 - 10:00 pm - make placing tracks not suck ass
+7:23 - 9:40 pm - make placing tracks not suck ass
 
-
+9:40 - 10:00 pm -- add ghost
