@@ -10,7 +10,7 @@ func _ready():
 	rail_grid_controller = %rail_grid
 	PlayerData.reset_game()
 	GlobalAudio.play_train_horn()
-	%Hud.sync_gui()
+	%Hud.sync_gui(false)
 	PlayerData.player_data_changed.connect(_on_player_data_change)
 	get_tree().call_group("grid_tiles", "update_permitted_rotations")
 
@@ -22,7 +22,7 @@ func get_gui() -> GuiController:
 	return %Hud
 
 func _on_player_data_change():
-	%Hud.sync_gui()
+	%Hud.sync_gui(true)
 	
 func on_load_dropoff():
 	if random.randi() % 100 > 75:

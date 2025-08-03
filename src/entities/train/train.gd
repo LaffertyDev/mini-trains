@@ -75,6 +75,13 @@ func start_moving():
 				%animated_sprite.play("moving_top")
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
+	var rail_tween_color = get_tree().create_tween()
+	
+	rail_tween_color.tween_property(%animated_sprite, "modulate:v", 1, 0.05).from(15) 
+	stop_moving()
+	
+	await get_tree().create_timer(0.05).timeout
+	
 	get_parent().call_deferred("remove_child", self)
 	self.call_deferred("queue_free")
 	for w in wagons_following:
