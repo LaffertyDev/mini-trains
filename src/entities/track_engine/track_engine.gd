@@ -86,40 +86,61 @@ func _on_center_area_entered(area: Area2D) -> void:
 			match tile.current_rotation:
 				Constants.RailType.HORIZONTAL:
 					# we do not turn
-					pass
+					# if I came from x I'm good
+					if movement_direction.x == 0:
+						collide_with_terrain.emit(Constants.Direction.left)
 				Constants.RailType.VERTICAL:
 					# we do not turn
+					if movement_direction.y == 0:
+						collide_with_terrain.emit(Constants.Direction.left)
 					pass
 				Constants.RailType.EAST_SOUTH:
 					if movement_direction.x != 0:
+						if movement_direction.x != -1:
+							collide_with_terrain.emit(Constants.Direction.left)
+							
 						movement_direction = Vector2(0, 1)
 					else:
+						if movement_direction.y != -1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(1, 0)
 					emit_direction()
 				Constants.RailType.EAST_NORTH:
 					if movement_direction.x != 0:
+						if movement_direction.x != -1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(0, -1)
 					else:
+						if movement_direction.y != 1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(1, 0)
 					emit_direction()
 				Constants.RailType.WEST_SOUTH:
 					if movement_direction.x != 0:
+						if movement_direction.x != 1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(0, 1)
 					else:
+						if movement_direction.y != -1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(-1, 0)
 					emit_direction()
 				Constants.RailType.WEST_NORTH:
 					if movement_direction.x != 0:
+						if movement_direction.x != 1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(0, -1)
 					else:
+						if movement_direction.y != 1:
+							collide_with_terrain.emit(Constants.Direction.left)
 						movement_direction = Vector2(-1, 0)
 					emit_direction()
 				Constants.RailType.CROSS_HORIZONTAL:
-					# do not turn
-					pass
+					if movement_direction.x == 0:
+						collide_with_terrain.emit(Constants.Direction.left)
 				Constants.RailType.CROSS_VERTICAL:
-					# do not turn
-					pass
+					if movement_direction.y == 0:
+						collide_with_terrain.emit(Constants.Direction.left)
 
 func _on_center_area_exited(area: Area2D) -> void:
 	var grid: GridController = get_tree().current_scene.get_grid()
