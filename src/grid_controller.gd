@@ -47,6 +47,8 @@ func _process(_delta: float) -> void:
 			else:
 				rotate_icon.position = grid_to_world_top_left(world_to_grid(get_global_mouse_position())) + Vector2(8, 8)
 				rotate_icon.show()
+				ghost_track.hide()
+				ghost_train.hide()
 		_:
 			ghost_track.hide()
 			ghost_train.hide()
@@ -57,6 +59,15 @@ func _process(_delta: float) -> void:
 		if tile == Constants.GridType.TRACK:
 			if real_tile.permitted_rotations.size() > 1:
 				real_tile.rotate_tile()
+				return
+			else:
+				if PlayerData.current_trains > 0:
+					var train_ins = train_scene.instantiate()
+					train_ins.position = grid_to_world_top_left(tile_pos)
+					get_parent().add_child(train_ins)
+					PlayerData.handle_make_train()
+					GlobalAudio.play_sound_place_tile()
+					return
 		
 	if Input.is_action_pressed("primary_action"):
 		if tile == Constants.GridType.EMPTY and PlayerData.current_tracks > 0:
@@ -64,13 +75,6 @@ func _process(_delta: float) -> void:
 			PlayerData.handle_build()
 			GlobalAudio.play_sound_place_tile()
 			get_tree().call_group("grid_tiles", "update_permitted_rotations")
-		if tile == Constants.GridType.TRACK:
-			if real_tile.permitted_rotations.size() == 1 and PlayerData.current_trains > 0:
-				var train_ins = train_scene.instantiate()
-				train_ins.position = grid_to_world_top_left(tile_pos)
-				get_parent().add_child(train_ins)
-				PlayerData.handle_make_train()
-				GlobalAudio.play_sound_place_tile()
 	elif Input.is_action_pressed("secondary_action"):
 		if tile == Constants.GridType.TRACK:
 			PlayerData.handle_recycle()

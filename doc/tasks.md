@@ -86,7 +86,7 @@ BUG TRACKER
 * [x] If a train dies while holding a wagon, the wagon will not disappear
 * You can delete the tracks underneath the production stations
 * Trains do not collide with rotations anymore
-* You cannot rotate tiles
+* [x] You cannot rotate tiles
 
 WATCHING EMILY PLAY NOTES
 
