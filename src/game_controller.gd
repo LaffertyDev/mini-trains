@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name GameController
 
 var rail_grid_controller
@@ -7,7 +7,7 @@ var random = RandomNumberGenerator.new()
 func _ready():
 	add_to_group("game_controller")
 	random.randomize()
-	rail_grid_controller = %rail_grid
+	rail_grid_controller = %grid_controller
 	PlayerData.reset_game()
 	GlobalAudio.play_train_horn()
 	%Hud.sync_gui(false)
@@ -16,7 +16,7 @@ func _ready():
 
 
 func get_grid() -> GridController:
-	return %rail_grid
+	return %grid_controller
 
 func get_gui() -> GuiController:
 	return %Hud

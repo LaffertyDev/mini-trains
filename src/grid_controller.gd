@@ -3,7 +3,6 @@ class_name GridController
 
 var train_scene = preload("res://src/entities/train/train.tscn")
 var rail_scene = preload("res://src/entities/gridtile/gridtile.tscn")
-var build_menu_scene = preload("res://src/ui/build_menu/build_menu.tscn")
 var producer_station_scene = preload("res://src/entities/producer_station/producer_station.tscn")
 
 var ghost_track
@@ -11,9 +10,9 @@ var ghost_train
 var rotate_icon
 
 func _ready():
-	ghost_track = get_parent().get_node("ghost_track")
-	ghost_train = get_parent().get_node("ghost_train")
-	rotate_icon = get_parent().get_node("rotate_icon")
+	ghost_track = %ghost_track
+	ghost_train = %ghost_train
+	rotate_icon = %rotate_icon
 
 func remove_grid_tile_at_position(pos: Vector2) -> void:
 	var real_grid = get_real_tile_at_pos(pos)
@@ -65,7 +64,7 @@ func _process(_delta: float) -> void:
 				if PlayerData.current_trains > 0:
 					var train_ins = train_scene.instantiate()
 					train_ins.position = grid_to_world_top_left(tile_pos)
-					get_parent().add_child(train_ins)
+					add_child(train_ins)
 					PlayerData.handle_make_train()
 					GlobalAudio.play_sound_place_tile()
 					return
@@ -92,12 +91,12 @@ func set_grid_at_pos(grid_pos: Vector2, grid_type: Constants.GridType) -> void:
 func setup_producer_at_pos(grid_pos: Vector2) -> void:
 	var producer = producer_station_scene.instantiate()
 	producer.position = grid_to_world_top_left(grid_pos)
-	get_parent().add_child(producer)
+	add_child(producer)
 	
 func spawn_train_at_position(grid_pos: Vector2) -> void:
 	var train = train_scene.instantiate()
 	train.position = grid_to_world_top_left(grid_pos)
-	get_parent().add_child(train)
+	add_child(train)
 	
 func get_tile_at_pos(grid_pos: Vector2) -> Constants.GridType:
 	var gridtiles = get_tree().get_nodes_in_group("grid_tiles")

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cywryjq0iv7lv"]
+
+[ext_resource type="Script" uid="uid://b6p7be63sci1p" path="res://src/grid_controller.gd" id="1_7iwir"]
+[ext_resource type="PackedScene" uid="uid://bxncjxvequh88" path="res://src/entities/station/station.tscn" id="2_rp7e2"]
+[ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="3_cmtxr"]
+[ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="4_l8u14"]
+[ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="5_r23l1"]
+
+[node name="GridController" type="Node2D"]
+script = ExtResource("1_7iwir")
+
+[node name="station" parent="." instance=ExtResource("2_rp7e2")]
+
+[node name="ghost_track" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
+top_level = true
+texture = ExtResource("3_cmtxr")
+
+[node name="ghost_train" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
+top_level = true
+texture = ExtResource("4_l8u14")
+
+[node name="rotate_icon" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
+top_level = true
+sprite_frames = ExtResource("5_r23l1")
+autoplay = "default"

@@ -17,6 +17,9 @@ func _on_track_engine_direction_facing_change(direction: Constants.Direction) ->
 		Constants.Direction.top:
 			%animated_sprite.play("moving_top")
 
+func reset_position() -> void:
+	pass
+
 func move() -> void:
 	%TrackEngine.move()
 

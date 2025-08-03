@@ -1,17 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://bnofxuo3vbq5l"]
+[gd_scene load_steps=9 format=4 uid="uid://dgke14wded48i"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://rhv1572fupje" path="res://src/game_controller.gd" id="1_bs6l1"]
-[ext_resource type="PackedScene" uid="uid://bxncjxvequh88" path="res://src/entities/station/station.tscn" id="2_3msxb"]
-[ext_resource type="Script" uid="uid://b6p7be63sci1p" path="res://src/grid_controller.gd" id="2_xq6wo"]
+[ext_resource type="PackedScene" uid="uid://cywryjq0iv7lv" path="res://src/grid_controller.tscn" id="2_qiocs"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="5_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_wqvko"]
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="7_wqvko"]
-[ext_resource type="SpriteFrames" uid="uid://dydwlxhmga7ak" path="res://src/terrain/tile_highlight.tres" id="8_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://fxbedv8vi18g" path="res://src/ui/hud/hud.tscn" id="8_uktfx"]
 [ext_resource type="Script" uid="uid://vskchi7y2pga" path="res://src/camera.gd" id="10_qiocs"]
-[ext_resource type="Texture2D" uid="uid://d25puk1ne8r8s" path="res://src/entities/gridtile/rail_vertical.png" id="10_uktfx"]
-[ext_resource type="Texture2D" uid="uid://drry4iiffbktt" path="res://src/ui/build_menu/train_base.png" id="11_y2hwx"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_bs6l1")
@@ -25,118 +21,107 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("1_7uq6d")
 metadata/_edit_lock_ = true
 
-[node name="rail_grid" type="Node2D" parent="."]
+[node name="grid_controller" parent="." instance=ExtResource("2_qiocs")]
 unique_name_in_owner = true
-script = ExtResource("2_xq6wo")
 
-[node name="station" parent="rail_grid" instance=ExtResource("2_3msxb")]
-
-[node name="gridtyle" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 0)
 grid_type = 1
 
-[node name="gridtyle2" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle2" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-32, 0)
 grid_type = 1
 
-[node name="gridtyle26" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle26" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-16, 0)
 grid_type = 1
 
-[node name="gridtyle24" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle24" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(48, 0)
 grid_type = 1
 
-[node name="gridtyle25" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle25" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(32, 0)
 grid_type = 1
 
-[node name="gridtyle8" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle8" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 16)
 grid_type = 1
 
-[node name="gridtyle10" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle10" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 32)
 grid_type = 1
 
-[node name="gridtyle12" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle12" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 48)
 grid_type = 1
 
-[node name="gridtyle11" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle11" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 64)
 grid_type = 1
 
-[node name="gridtyle15" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle15" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 16)
 grid_type = 1
 
-[node name="gridtyle16" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle16" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 32)
 grid_type = 1
 
-[node name="gridtyle27" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle27" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 64)
 grid_type = 1
 
-[node name="gridtyle30" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle30" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 48)
 grid_type = 1
 
-[node name="gridtyle18" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle18" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-48, 80)
 grid_type = 1
 
-[node name="gridtyle19" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle19" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-32, 80)
 grid_type = 1
 
-[node name="gridtyle23" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle23" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-48, 0)
 grid_type = 1
 
-[node name="gridtyle3" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle3" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(48, 80)
 grid_type = 1
 
-[node name="gridtyle28" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle28" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(32, 80)
 grid_type = 1
 
-[node name="gridtyle29" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle29" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-16, 80)
 grid_type = 1
 
-[node name="gridtyle14" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle14" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(64, 80)
 grid_type = 1
 
-[node name="gridtyle7" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle7" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 0)
 grid_type = 1
 
-[node name="gridtyle13" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle13" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-80, 80)
 grid_type = 1
 
-[node name="gridtyle9" parent="rail_grid" instance=ExtResource("5_pk08u")]
+[node name="gridtyle9" parent="grid_controller" instance=ExtResource("5_pk08u")]
 position = Vector2(-64, 80)
 grid_type = 1
 
-[node name="ProducerStation" parent="rail_grid" instance=ExtResource("7_wqvko")]
+[node name="ProducerStation" parent="grid_controller" instance=ExtResource("7_wqvko")]
 position = Vector2(0, 80)
 currently_produced = true
 
-[node name="train" parent="." instance=ExtResource("6_wqvko")]
+[node name="train" parent="grid_controller" instance=ExtResource("6_wqvko")]
 position = Vector2(-16, 0)
-
-[node name="highlight_marker" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-position = Vector2(-8, 8)
-sprite_frames = ExtResource("8_cdx1q")
-autoplay = "default"
-frame_progress = 0.810345
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -151,27 +136,5 @@ mouse_filter = 1
 position = Vector2(16, 32)
 script = ExtResource("10_qiocs")
 speed = 200
-
-[node name="ghost_track" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
-top_level = true
-texture = ExtResource("10_uktfx")
-
-[node name="ghost_train" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
-top_level = true
-texture = ExtResource("11_y2hwx")
-
-[node name="rotate_icon" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-modulate = Color(0.784314, 0.784314, 0.784314, 0.54902)
-top_level = true
-sprite_frames = ExtResource("8_cdx1q")
-autoplay = "default"
 
 [connection signal="timeout" from="levelup_timer" to="." method="_on_levelup_timer_timeout"]
