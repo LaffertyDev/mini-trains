@@ -14,6 +14,12 @@ func play_sound_levelup():
 func play_train_horn():
 	%sound_train_horn.play()
 	
+func play_train_movement():
+	%sound_train_chunkchunk.play()
+	
+func stop_train_movement():
+	%sound_train_chunkchunk.stop()
+	
 func play_sound_rotate_junction():
 	%sound_place_rotate_junction.play()
 	
