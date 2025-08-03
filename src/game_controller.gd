@@ -28,7 +28,7 @@ func on_load_dropoff():
 	if random.randi() % 100 > 90:
 		PlayerData.current_trains += 1
 	else:
-		PlayerData.current_tracks += 20
+		PlayerData.current_tracks += 10
 		
 	PlayerData.player_data_changed.emit()
 	if %levelup_timer.is_stopped():

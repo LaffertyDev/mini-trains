@@ -31,9 +31,9 @@ func compute_score() -> int:
 	return \
 		int(floor((stat_time_elapsed * 10))) \
 		+ stat_trains_distance_moved \
-		+ (stat_tracks_placed * 10) \
+		+ (stat_tracks_placed * 5) \
 		- (stat_trains_placed * 100) \
-		+ (stat_loads_completed * 10)
+		+ (stat_loads_completed * 200)
 
 func handle_build() -> void:
 	current_tracks -= 1
