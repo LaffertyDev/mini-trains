@@ -8,6 +8,7 @@ var wagons_following = []
 var wagon_res = preload("res://src/entities/wagon/wagon.tscn")
 
 func _ready():
+	add_to_group("trains")
 	var grid: GridController = get_tree().current_scene.get_grid()
 	var grid_position = grid.world_to_grid(self.global_position)
 	var grid_tile = grid.get_real_tile_at_pos(grid_position)
@@ -36,8 +37,20 @@ func _ready():
 				print("ERROR ERROR ERROR")
 		self.position = grid.grid_to_world_top_left(grid_position)
 		%TrackEngine.set_direction(starting_direction)
-		%TrackEngine.move()
-		GlobalAudio.play_train_movement()
+		start_moving()
+		
+func stop_moving():
+	%TrackEngine.stop()
+	GlobalAudio.stop_train_movement()
+	%animated_sprite.stop()
+	
+	
+func start_moving():
+	%TrackEngine.move()
+	GlobalAudio.play_train_movement()
+	%animated_sprite.play()
+	for w in wagons_following:
+		w.move()
 
 func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> void:
 	get_parent().call_deferred("remove_child", self)
@@ -46,6 +59,7 @@ func _on_track_engine_collide_with_terrain(_direction: Constants.Direction) -> v
 		w.get_parent().call_deferred("remove_child", w)
 		w.call_deferred("queue_free")
 	wagons_following = []
+	GlobalAudio.play_train_crash()
 	GlobalAudio.stop_train_movement()
 
 func _on_track_engine_direction_facing_change(direction: Constants.Direction) -> void:
@@ -66,28 +80,28 @@ func _on_track_engine_enter_station(station: Station) -> void:
 		GlobalAudio.play_sound_cargo_dropoff()
 		%stop_timer.start()
 		self.holding_cargo = false
-		%TrackEngine.stop()
 		PlayerData.stat_loads_completed += 1
 		for w in wagons_following:
 			w.get_parent().call_deferred("remove_child", w)
 			w.call_deferred("queue_free")
 		wagons_following = []
-		GlobalAudio.stop_train_movement()
+		stop_moving()
+		
+		# this invalidates most of the objective of the game
+		# (that is, to make loops)
+		# a better approach would be to cool it off
+		PlayerData.handle_make_train()
 
 func _on_stop_timer_timeout() -> void:
-	%TrackEngine.move()
-	GlobalAudio.play_train_movement()
-	for w in wagons_following:
-		w.move()
+	start_moving()
 
 func _on_track_engine_enter_producer(producer: ProducerStation) -> void:
 	if producer.has_production_ready() and not holding_cargo:
 		producer.take_production()
 		GlobalAudio.play_sound_cargo_dropoff()
 		%stop_timer.start()
+		stop_moving()
 		self.holding_cargo = true
-		%TrackEngine.stop()
-		GlobalAudio.stop_train_movement()
 		
 		var wagon = wagon_res.instantiate()
 		wagon.position = self.position - (%TrackEngine.movement_direction * 19)

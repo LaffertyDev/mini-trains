@@ -102,15 +102,13 @@ WATCHING EMILY PLAY NOTES
 
 ## BONUS IMPROVEMENTS
 
-* When trains die they should play a sound
-	* and play an animation for derailment
-* OR
-* Trains do not die, they just stop until they can go again
+* [x] When trains die they should play a sound
 
 ## MORNING THOUGHTS
 
 * You have an upper amount of trains, losing one lets you spawn another
 * Slowly zoom out the camera for increased visual appeal
+* audio is still broken sometimes on score screen
 
 
 UI BONUSES
@@ -119,7 +117,7 @@ UI BONUSES
 * [x] Tutorial
 
 ANIMATION BONUSES
-* Add smoke animation to train
+* [x] Add smoke animation to train
 * Improve train movement animation
 * Add birds or critters
 * Add animation for rotating the junctions
@@ -129,8 +127,8 @@ ANIMATION BONUSES
 SOUND BONUSES
 * Add background music during play time [15 minutes]
 	* Find background music [15 minutes]
-* Add train movement sounds
-	* Find train movement sounds [30 minutes]
+* [x] Add train movement sounds
+	* [x] Find train movement sounds [30 minutes]
 	* Make it start loud and go to the background as more trains are added [30 minutes]
 
 BONUSES

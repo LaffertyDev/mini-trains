@@ -14,8 +14,26 @@ func play_sound_levelup():
 func play_train_horn():
 	%sound_train_horn.play()
 	
+func play_train_crash():
+	%sound_train_crash.play()
+	
 func play_train_movement():
 	%sound_train_chunkchunk.play()
+	
+func _process(_delta: float) -> void:
+	if get_tree():
+		if get_tree().get_nodes_in_group("trains").size() == 0:
+			stop_train_movement()
+			
+		var producers = get_tree().get_nodes_in_group("producers")
+		var has_producer_critical = false
+		for p in producers:
+			if p.is_playing_doom:
+				has_producer_critical = true
+				
+		if !has_producer_critical:
+			cancel_sound_doom_completely()
+			
 	
 func stop_train_movement():
 	%sound_train_chunkchunk.stop()

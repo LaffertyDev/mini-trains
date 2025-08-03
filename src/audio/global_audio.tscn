@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0xjbkncego4g"]
+[gd_scene load_steps=15 format=3 uid="uid://c0xjbkncego4g"]
 
 [ext_resource type="Script" uid="uid://dwn8v8spqmvr0" path="res://src/audio/global_audio.gd" id="1_h6xn1"]
 [ext_resource type="AudioStream" uid="uid://bg1e30oxrfpvu" path="res://src/audio/sound_load_pickup.ogg" id="2_go2if"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://7nbqh8ktv56m" path="res://src/audio/sound_train_horn.ogg" id="5_ie81t"]
 [ext_resource type="AudioStream" uid="uid://bruuycqebn76r" path="res://src/audio/sound_level_up.ogg" id="5_jvrte"]
 [ext_resource type="AudioStream" uid="uid://b5p2gvlidpjnj" path="res://src/audio/sound_click_place_building.ogg" id="6_blsvj"]
+[ext_resource type="AudioStream" uid="uid://bhkc28ahcn3nd" path="res://src/audio/sound_train_crash.ogg" id="6_dcamn"]
 [ext_resource type="AudioStream" uid="uid://ivjk5c6dxar" path="res://src/audio/sound_train_chunkchunk.ogg" id="6_i8m2u"]
 [ext_resource type="AudioStream" uid="uid://31ulm25fybfm" path="res://src/audio/sound_click_tile.ogg" id="7_jvrte"]
 [ext_resource type="AudioStream" uid="uid://drhioqm1sc1a7" path="res://src/audio/sound_click_recycle_building.ogg" id="7_ywp5t"]
@@ -33,6 +34,11 @@ stream = ExtResource("3_6703h")
 unique_name_in_owner = true
 stream = ExtResource("5_ie81t")
 volume_db = -10.0
+
+[node name="sound_train_crash" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_dcamn")
+pitch_scale = 0.6
 
 [node name="sound_train_chunkchunk" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

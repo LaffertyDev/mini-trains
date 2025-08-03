@@ -74,3 +74,7 @@
 
 12:30 - 12:45 pm add tutorial
 
+
+## Sunday
+
+9 - 9:40 -- pixel art for producers and trains, some audio
