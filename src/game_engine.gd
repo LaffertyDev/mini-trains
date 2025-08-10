@@ -70,7 +70,7 @@ func spawn_producer():
 	
 func on_defeat() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color.BLACK, 2).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(get_parent(), "modulate", Color.BLACK, 2).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(switch_scene_to_defeat)
 
 func switch_scene_to_defeat():
