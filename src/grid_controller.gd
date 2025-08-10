@@ -90,7 +90,7 @@ func remove_grid_tile_at_position(pos: Vector2) -> void:
 	if real_grid:
 		real_grid.get_parent().call_deferred("remove_child", real_grid)
 		real_grid.call_deferred("queue_free")
-		handle_grid_change()
+		self.call_deferred("handle_grid_change")
 
 func setup_producer_at_pos(grid_pos: Vector2) -> void:
 	var producer = producer_station_scene.instantiate()
