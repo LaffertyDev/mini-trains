@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 					PlayerData.handle_make_train()
 					GlobalAudio.play_sound_place_tile()
 					return
-		
+
 	if Input.is_action_pressed("primary_action"):
 		if tile == Constants.GridType.EMPTY and PlayerData.current_tracks > 0:
 			set_grid_at_pos(tile_pos, Constants.GridType.TRACK)

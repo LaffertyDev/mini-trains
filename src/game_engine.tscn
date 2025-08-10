@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://vskchi7y2pga" path="res://src/camera.gd" id="3_2t8dh"]
 
 [node name="GameEngine" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_w5mld")
 
 [node name="levelup_timer" type="Timer" parent="."]

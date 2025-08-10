@@ -22,6 +22,7 @@ size = Vector2(2, 1)
 size = Vector2(8, 8)
 
 [node name="TrackEngine" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_gfmpa")
 
 [node name="center" type="Area2D" parent="."]

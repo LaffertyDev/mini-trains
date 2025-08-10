@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="6_l8u14"]
 
 [node name="GridController" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_7iwir")
 
 [node name="station" parent="." instance=ExtResource("2_rp7e2")]

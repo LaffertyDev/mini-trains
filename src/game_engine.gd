@@ -14,6 +14,9 @@ func _ready():
 	PlayerData.player_data_changed.connect(_on_player_data_change)
 	get_tree().call_group("grid_tiles", "update_permitted_rotations")
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		get_tree().paused = !get_tree().paused
 
 func get_grid() -> GridController:
 	return %grid_controller
