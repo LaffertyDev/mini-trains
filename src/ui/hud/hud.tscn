@@ -71,7 +71,7 @@ layout_mode = 2
 
 [node name="distance" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer4"]
 layout_mode = 2
-text = "Distance:"
+text = "Distance Travelled:"
 horizontal_alignment = 1
 
 [node name="label_distance" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer4"]
@@ -85,7 +85,7 @@ layout_mode = 2
 
 [node name="trains" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer3"]
 layout_mode = 2
-text = "Trains:"
+text = "Trains Placed:"
 horizontal_alignment = 1
 
 [node name="label_trains_placed" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer3"]
@@ -99,7 +99,7 @@ layout_mode = 2
 
 [node name="tracks" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer6"]
 layout_mode = 2
-text = "Tracks:"
+text = "Tracks Placed:"
 horizontal_alignment = 1
 
 [node name="label_tracks_placed" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer6"]
@@ -113,7 +113,7 @@ layout_mode = 2
 
 [node name="loads" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer5"]
 layout_mode = 2
-text = "Loads:"
+text = "Loads Delivered:"
 
 [node name="label_loads" type="Label" parent="MarginContainer2/HBoxContainer/HBoxContainer5"]
 unique_name_in_owner = true
