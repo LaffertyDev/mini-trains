@@ -10,7 +10,6 @@
 
 ## Obvious Hindsight Features
 
-* Pause/Unpause to adjust tracks
 * Permanent 'X' crossing (no rotations)
 
 

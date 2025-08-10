@@ -26,3 +26,5 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(16, 32)
 script = ExtResource("3_2t8dh")
 speed = 200
+
+[connection signal="timeout" from="levelup_timer" to="." method="_on_levelup_timer_timeout"]
