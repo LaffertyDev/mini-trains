@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bcvbo7uqtsjqa"]
+[gd_scene load_steps=7 format=4 uid="uid://bcvbo7uqtsjqa"]
 
 [ext_resource type="TileSet" uid="uid://brc0lguwlu30n" path="res://src/terrain/terrain.tres" id="1_yrdh7"]
 [ext_resource type="PackedScene" uid="uid://cywryjq0iv7lv" path="res://src/grid_controller.tscn" id="2_88plu"]
 [ext_resource type="PackedScene" uid="uid://br5dwwii7dtjn" path="res://src/entities/gridtile/gridtile.tscn" id="3_kdqda"]
+[ext_resource type="PackedScene" uid="uid://cc0poq6hpa3yw" path="res://src/entities/train/train.tscn" id="4_88plu"]
 [ext_resource type="PackedScene" uid="uid://vlku18eqlx5i" path="res://src/entities/producer_station/producer_station.tscn" id="4_mysi0"]
 [ext_resource type="PackedScene" uid="uid://cy177gnj0gxr6" path="res://src/game_engine.tscn" id="5_fg18x"]
 
@@ -40,6 +41,57 @@ grid_type = 1
 position = Vector2(-64, 16)
 grid_type = 1
 
+[node name="gridtyle13" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-160, 16)
+grid_type = 1
+
+[node name="gridtyle17" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-160, 32)
+grid_type = 1
+
+[node name="gridtyle20" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-160, 48)
+grid_type = 1
+
+[node name="gridtyle21" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-160, 64)
+grid_type = 1
+
+[node name="gridtyle22" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-176, 64)
+grid_type = 1
+
+[node name="gridtyle31" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-192, 64)
+grid_type = 1
+
+[node name="gridtyle32" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-208, 64)
+grid_type = 1
+
+[node name="gridtyle71" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-208, 48)
+grid_type = 1
+
+[node name="gridtyle72" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-208, 32)
+grid_type = 1
+
+[node name="gridtyle73" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-208, 16)
+grid_type = 1
+
+[node name="gridtyle74" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-192, 16)
+grid_type = 1
+
+[node name="train2" parent="grid_controller" instance=ExtResource("4_88plu")]
+position = Vector2(-176, 16)
+
+[node name="gridtyle75" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-176, 16)
+grid_type = 1
+
 [node name="gridtyle10" parent="grid_controller" instance=ExtResource("3_kdqda")]
 position = Vector2(-64, 32)
 grid_type = 1
@@ -58,6 +110,34 @@ grid_type = 1
 
 [node name="gridtyle16" parent="grid_controller" instance=ExtResource("3_kdqda")]
 position = Vector2(64, 32)
+grid_type = 1
+
+[node name="gridtyle39" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(112, 32)
+grid_type = 1
+
+[node name="gridtyle40" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(128, 32)
+grid_type = 1
+
+[node name="gridtyle41" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(128, 48)
+grid_type = 1
+
+[node name="gridtyle42" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(128, 64)
+grid_type = 1
+
+[node name="gridtyle43" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(112, 64)
+grid_type = 1
+
+[node name="gridtyle44" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(96, 64)
+grid_type = 1
+
+[node name="gridtyle45" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(80, 64)
 grid_type = 1
 
 [node name="gridtyle27" parent="grid_controller" instance=ExtResource("3_kdqda")]
@@ -100,8 +180,131 @@ grid_type = 1
 position = Vector2(-64, 0)
 grid_type = 1
 
-[node name="gridtyle13" parent="grid_controller" instance=ExtResource("3_kdqda")]
-position = Vector2(-80, 80)
+[node name="gridtyle48" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-48, -64)
+grid_type = 1
+
+[node name="gridtyle49" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-32, -64)
+grid_type = 1
+
+[node name="gridtyle50" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-16, -64)
+grid_type = 1
+
+[node name="gridtyle51" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(0, -64)
+grid_type = 1
+
+[node name="gridtyle52" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(16, -64)
+grid_type = 1
+
+[node name="gridtyle53" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(16, -80)
+grid_type = 1
+
+[node name="gridtyle54" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(16, -96)
+grid_type = 1
+
+[node name="gridtyle55" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(16, -112)
+grid_type = 1
+
+[node name="gridtyle56" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(32, -112)
+grid_type = 1
+
+[node name="gridtyle57" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(48, -112)
+grid_type = 1
+
+[node name="gridtyle58" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(64, -112)
+grid_type = 1
+
+[node name="gridtyle59" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(112, -112)
+grid_type = 1
+
+[node name="train3" parent="grid_controller" instance=ExtResource("4_88plu")]
+position = Vector2(80, -112)
+
+[node name="gridtyle60" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(128, -112)
+grid_type = 1
+
+[node name="gridtyle61" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -112)
+grid_type = 1
+
+[node name="gridtyle62" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -96)
+grid_type = 1
+
+[node name="gridtyle63" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -80)
+grid_type = 1
+
+[node name="gridtyle64" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -64)
+grid_type = 1
+
+[node name="gridtyle65" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -48)
+grid_type = 1
+
+[node name="gridtyle66" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -32)
+grid_type = 1
+
+[node name="gridtyle67" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, -16)
+grid_type = 1
+
+[node name="gridtyle68" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, 0)
+grid_type = 1
+
+[node name="gridtyle69" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, 16)
+grid_type = 1
+
+[node name="gridtyle70" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(144, 32)
+grid_type = 1
+
+[node name="gridtyle33" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-64, -64)
+grid_type = 1
+
+[node name="gridtyle34" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-112, -64)
+grid_type = 1
+
+[node name="gridtyle35" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-112, -48)
+grid_type = 1
+
+[node name="gridtyle36" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-112, 0)
+grid_type = 1
+
+[node name="gridtyle46" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-112, -16)
+grid_type = 1
+
+[node name="gridtyle47" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-112, -32)
+grid_type = 1
+
+[node name="gridtyle37" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-96, 0)
+grid_type = 1
+
+[node name="gridtyle38" parent="grid_controller" instance=ExtResource("3_kdqda")]
+position = Vector2(-80, 0)
 grid_type = 1
 
 [node name="gridtyle9" parent="grid_controller" instance=ExtResource("3_kdqda")]
@@ -110,6 +313,15 @@ grid_type = 1
 
 [node name="ProducerStation" parent="grid_controller" instance=ExtResource("4_mysi0")]
 position = Vector2(0, 80)
-currently_produced = true
+
+[node name="ProducerStation2" parent="grid_controller" instance=ExtResource("4_mysi0")]
+position = Vector2(-96, -64)
+
+[node name="ProducerStation3" parent="grid_controller" instance=ExtResource("4_mysi0")]
+position = Vector2(80, 32)
+
+[node name="ProducerStation4" parent="grid_controller" instance=ExtResource("4_mysi0")]
+position = Vector2(80, -112)
+currently_produced = false
 
 [node name="GameEngine" parent="." instance=ExtResource("5_fg18x")]
