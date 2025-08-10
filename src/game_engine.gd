@@ -16,7 +16,12 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		get_tree().paused = !get_tree().paused
+		if get_tree().paused:
+			%Hud.handle_unpause()
+			get_tree().paused = false
+		else:
+			%Hud.handle_pause()
+			get_tree().paused = true
 
 func get_grid() -> GridController:
 	return %grid_controller

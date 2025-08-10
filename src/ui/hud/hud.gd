@@ -30,4 +30,11 @@ func sync_gui(animate: bool):
 		var train_tween_size = get_tree().create_tween()
 		train_tween_size.tween_property(%train_label, "scale", Vector2(1.3, 1.3), 0.3).set_trans(Tween.TRANS_LINEAR)
 		train_tween_size.tween_property(%train_label, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_LINEAR)
-		
+
+func handle_pause():
+	%pause_label.show()
+	%pause_texture.show()
+	
+func handle_unpause():
+	%pause_label.hide()
+	%pause_texture.hide()
